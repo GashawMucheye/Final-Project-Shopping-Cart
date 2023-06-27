@@ -9,3 +9,5 @@
 ```
 npm create vite@latest
 ```
+
+4. Create Git Repository
