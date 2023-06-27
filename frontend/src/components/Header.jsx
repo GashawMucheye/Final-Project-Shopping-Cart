@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header>
-      <a href="#" classNam="text-danger">
-        amazona
-      </a>
+      <Link to="/" className="text-success">
+        <strong> amazona</strong>
+      </Link>
     </header>
   );
 };

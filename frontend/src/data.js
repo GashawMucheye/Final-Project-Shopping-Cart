@@ -1,15 +1,15 @@
-import prod1 from "../src/images/pic1.jpg";
-import prod2 from "../src/images/pic2.jpg";
-import prod3 from "../src/images/pic3.jpg";
-import prod4 from "../src/images/pic4.jpg";
-import prod5 from "../src/images/pic5.jpg";
-import prod6 from "../src/images/pic6.jpg";
-import prod7 from "../src/images/pic7.jpg";
-import prod8 from "../src/images/pic8.jpg";
-import prod9 from "../src/images/pic9.jpg";
-import prod10 from "../src/images/pic10.jpg";
-import prod11 from "../src/images/pic11.jpg";
-import prod12 from "../src/images/pic12.jpg";
+// import prod1 from "../src/images/pic1.jpg";
+// import prod2 from "../src/images/pic2.jpg";
+// import prod3 from "../src/images/pic3.jpg";
+// import prod4 from "../src/images/pic4.jpg";
+// import prod5 from "../src/images/pic5.jpg";
+// import prod6 from "../src/images/pic6.jpg";
+// import prod7 from "../src/images/pic7.jpg";
+// import prod8 from "../src/images/pic8.jpg";
+// import prod9 from "../src/images/pic9.jpg";
+// import prod10 from "../src/images/pic10.jpg";
+// import prod11 from "../src/images/pic11.jpg";
+// import prod12 from "../src/images/pic12.jpg";
 
 export const data = {
   products: [
@@ -18,7 +18,7 @@ export const data = {
       name: "heavy pot",
       slug: "heavy-pot",
       category: "Cook-ware",
-      image: prod1,
+      image: "/images/pic1.jpg",
       price: 120,
       countInStock: 10,
       brand: "Nike",
@@ -31,7 +31,7 @@ export const data = {
       name: "pan",
       slug: "heavy pan ",
       category: "cook ware",
-      image: prod2,
+      image: "/images/pic2.jpg",
       price: 250,
       countInStock: 20,
       brand: "Adidas",
@@ -44,7 +44,7 @@ export const data = {
       name: "Plasti Container",
       slug: "plastic-container",
       category: "Food-storage",
-      image: prod3,
+      image: "/images/pic3.jpg",
       price: 25,
       countInStock: 15,
       brand: "Nike",
@@ -57,7 +57,7 @@ export const data = {
       name: "apron",
       slug: "quality-apron",
       category: "kitchen-linens",
-      image: prod4,
+      image: "/images/pic4.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -70,7 +70,7 @@ export const data = {
       name: "Skillet",
       slug: "heavy-skillet",
       category: "cooke-ware",
-      image: prod5,
+      image: "/images/pic5.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -83,7 +83,7 @@ export const data = {
       name: "roasting pans",
       slug: "roasting-pans",
       category: "cook-ware",
-      image: prod6,
+      image: "/images/pic6.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -96,7 +96,7 @@ export const data = {
       name: "muffin pans",
       slug: "muffin-pans",
       category: "cook-ware",
-      image: prod7,
+      image: "/images/pic7.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -109,7 +109,7 @@ export const data = {
       name: "spice racks",
       slug: "spice-racks",
       category: "food-storage and organizations",
-      image: prod8,
+      image: "/images/pic8.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -122,7 +122,7 @@ export const data = {
       name: "Table Clothes",
       slug: "table-clothes",
       category: "kitchen Linens",
-      image: prod9,
+      image: "/images/pic9.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -135,7 +135,7 @@ export const data = {
       name: "roasting-pans",
       slug: "adidas-fit-pant",
       category: "cook- ware",
-      image: prod10,
+      image: "/images/pic10.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -148,7 +148,7 @@ export const data = {
       name: "dish towels",
       slug: "dish-towels",
       category: "kitchen Linens",
-      image: prod11,
+      image: "/images/pic11.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
@@ -161,7 +161,7 @@ export const data = {
       name: "lunch boxes",
       slug: "lunch-boxes",
       category: "food-storage",
-      image: prod12,
+      image: "/images/pic12.jpg",
       price: 65,
       countInStock: 5,
       brand: "Puma",
