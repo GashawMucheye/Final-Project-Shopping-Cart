@@ -86,3 +86,10 @@ npm install react-bootstrap bootstrap
 - use spinner component
 - create message component
 - create utils.js to define getError function
+
+14. Implement add to cart
+
+- create React Context
+- define reducer
+- create store provider
+- implement add to cart button click handler
