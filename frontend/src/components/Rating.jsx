@@ -1,9 +1,6 @@
-import React from "react";
-
-const Rating = (props) => {
-  const { rating, numReviews, color } = props;
+const Rating = ({ rating, numReviews }) => {
   return (
-    <div className="rating">
+    <div className="rating text-warning">
       <span>
         <i
           className={
@@ -13,8 +10,7 @@ const Rating = (props) => {
               ? "fas fa-star-half-alt"
               : "far fa-star"
           }
-          // style={{ color }}
-        />
+        ></i>
       </span>
       <span>
         <i
@@ -25,7 +21,6 @@ const Rating = (props) => {
               ? "fas fa-star-half-alt"
               : "far fa-star"
           }
-          // style={{ color }}
         />
       </span>
       <span>
@@ -52,7 +47,7 @@ const Rating = (props) => {
           // style={{ color }}
         />
       </span>
-      <span style={{ color }}>
+      <span>
         <i
           className={
             rating >= 5
@@ -64,7 +59,7 @@ const Rating = (props) => {
           // style={{ color }}
         />
       </span>
-      <span> {numReviews} reviews</span>
+      <span className="text-dark"> {numReviews} reviews</span>
     </div>
   );
 };

@@ -58,3 +58,31 @@ npm init -y
 - define reducer
 - update fetch data
 - get state from useReducer
+
+10. Add bootstrap UI Framework
+
+- install react-bootstrap
+
+```
+npm install react-bootstrap bootstrap
+```
+
+- update App.js
+
+11. Create Product and Rating Component
+
+- create rating component
+- create product component
+- use Rating Component in Product component
+
+12. Create Product Details Screen
+
+- fetch product from backend
+- create 3 columns for image,info and action
+
+13. Create Loading and Message Component
+
+- create loading component
+- use spinner component
+- create message component
+- create utils.js to define getError function
