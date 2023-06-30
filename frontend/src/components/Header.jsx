@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
+import Navbars from "./Navbars";
 
 const Header = () => {
   return (
     <header>
-      <Link to="/" className="text-success">
-        <strong> amazona</strong>
-      </Link>
+      <Navbars brandName="Senays" />
     </header>
   );
 };

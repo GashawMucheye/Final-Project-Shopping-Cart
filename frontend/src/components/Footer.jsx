@@ -3,10 +3,12 @@ import { Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <footer className="p-2">
-      <Container>
+    <footer className="p-2 bg-dark">
+      <Container className="bg-primary">
         <div className="text-center ">
-          <p style={{ color: "white" }}> &copy;all rights reserver me</p>
+          <p className="mt-1" style={{ color: "white" }}>
+            &copy;all rights reserver me
+          </p>
         </div>
       </Container>
     </footer>

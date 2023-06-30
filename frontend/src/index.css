@@ -1,65 +1,84 @@
+/*! root-styling */
 :root {
   --blue: #1e90ff;
 }
-
+/*! refer all elements styling */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
+/*! body styling */
 body {
-  /* background-color: #333; */
+  /* background-color: black; */
   height: 100vh;
   font-family: sans-serif;
 }
-
-.App {
-  height: 100vh;
-  /* width: 100wh; */
-  display: flex;
-  flex-direction: column;
+/*! styling scrollbar */
+::-webkit-scrollbar {
+  width: 18px;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: steelblue;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+/*! app component styling */
+.App {
+  min-height: 100vh;
+}
+/*! header styling */
 header {
-  background-color: #333;
-  padding: 1rem;
   position: sticky;
   top: 0;
-  min-height: 60px;
+  z-index: 1;
+  /* min-height: 60px; */
 }
-
+/*! main styling */
+main {
+  flex: 1;
+  /* z-index: -1; */
+}
+section {
+  min-height: 400px;
+  background-image: url("https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9tZSUyMGFuZCUyMGtpdGNoZW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-size: cover;
+}
+/*! products styling */
 .products {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+/*! product styling */
 .product {
   border: 1px #333 solid;
   margin: 1rem;
 }
-
+/*! image styling */
 .product img {
   width: 100%;
   max-width: 400px;
 }
-
-main {
-  flex: 1;
-  padding: 1rem;
-}
-
-footer {
-  background-color: #333;
-  min-height: 40px;
-  margin-block-start: auto;
-}
-
-.product img {
-  width: 100%;
-  max-width: 400px;
-}
-
+/*! product information styling  */
 .product-info {
   padding: 1rem;
+}
+
+/*! product-screen-image */
+.product-screen-image {
+  max-width: 100%;
 }
