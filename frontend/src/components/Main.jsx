@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import HomeScreen from "../screens/HomeScreen";
 import ProductScreen from "../screens/ProductScreen";
 import { Container } from "react-bootstrap";
+import CartScreen from "../screens/CartScreen";
 
 function Main() {
   return (
@@ -11,6 +12,7 @@ function Main() {
         <Routes>
           <Route path="/product/:slug" element={<ProductScreen />} />
           <Route path="/" element={<HomeScreen />} />
+          <Route path="/cart" element={<CartScreen />} />
         </Routes>
       </Container>
     </main>

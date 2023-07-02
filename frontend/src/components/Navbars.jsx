@@ -15,6 +15,7 @@ const Navbars = ({ brandName }) => {
             <strong> {brandName}</strong>
           </Navbar.Brand>
         </LinkContainer>
+
         <Nav>
           <Link to="/cart" className="nav-link">
             <FaShoppingCart className="text-warning" />
