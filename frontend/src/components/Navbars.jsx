@@ -15,6 +15,9 @@ const Navbars = ({ brandName }) => {
             <strong> {brandName}</strong>
           </Navbar.Brand>
         </LinkContainer>
+        <LinkContainer>
+          <Nav.Link>About</Nav.Link>
+        </LinkContainer>
 
         <Nav>
           <Link to="/cart" className="nav-link">
