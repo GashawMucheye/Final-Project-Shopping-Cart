@@ -82,3 +82,6 @@ section {
 .product-screen-image {
   max-width: 100%;
 }
+.img-thumbnail {
+  height: 80px;
+}
