@@ -6,7 +6,7 @@
 2. Install Tools
 3. Create React App by using vite
 
-```
+```js
 npm create vite@latest
 ```
 
@@ -16,7 +16,7 @@ npm create vite@latest
 
 - inatall react-router-dom
 
-```
+```js
  npm react-
  router-dom
 ```
@@ -63,7 +63,7 @@ npm init -y
 
 - install react-bootstrap
 
-```
+```js
 npm install react-bootstrap bootstrap
 ```
 
