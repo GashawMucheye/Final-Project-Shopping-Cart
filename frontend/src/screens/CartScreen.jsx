@@ -45,7 +45,7 @@ const CartScreen = () => {
             <ListGroup>
               {cartItems.map((item) => (
                 <ListGroup.Item key={item._id}>
-                  <Row className="allign-items-center">
+                  <Row className="align-items-center">
                     <Col md={4}>
                       <img
                         src={item.image}
@@ -67,8 +67,8 @@ const CartScreen = () => {
                           className="fas fa-minus-circle
                         "
                         ></i>
-                      </Button>
-                      <span>{item.quantity}</span>
+                      </Button>{" "}
+                      <span>{item.quantity}</span>{" "}
                       <Button
                         variant="light"
                         onClick={() =>
@@ -82,10 +82,8 @@ const CartScreen = () => {
                         ></i>
                       </Button>
                     </Col>
-                    <Col md={3} className="mt-2">
-                      ${item.price}
-                    </Col>
-                    <Col>
+                    <Col md={3}>${item.price}</Col>
+                    <Col md={2}>
                       <Button
                         onClick={() => removeItemHandler(item)}
                         variant="light"
