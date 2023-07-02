@@ -29,7 +29,7 @@ npm create vite@latest
 7. Create Node.js Server
    run npm init in root folder
 
-```
+```js
 npm init -y
 ```
 
