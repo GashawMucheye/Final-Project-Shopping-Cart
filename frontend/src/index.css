@@ -85,3 +85,9 @@ section {
 .img-thumbnail {
   height: 80px;
 }
+
+/*! styling signin */
+
+.small-container {
+  max-width: 600px;
+}
