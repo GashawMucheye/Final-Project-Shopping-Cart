@@ -1,7 +1,6 @@
 export const data = {
   products: [
     {
-      _id: "1",
       name: "heavy pot",
       slug: "heavy-pot",
       category: "Cook-ware",
@@ -14,7 +13,6 @@ export const data = {
       description: "high quality shirt",
     },
     {
-      _id: "2",
       name: "pan",
       slug: "heavy-pan",
       category: "cook ware",
@@ -27,7 +25,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "3",
       name: "Plastic Container",
       slug: "plastic-container",
       category: "Food-storage",
@@ -40,7 +37,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "4",
       name: "apron",
       slug: "quality-apron",
       category: "kitchen-linens",
@@ -53,7 +49,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "5",
       name: "Skillet",
       slug: "heavy-skillet",
       category: "cooke-ware",
@@ -66,7 +61,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "6",
       name: "roasting pans",
       slug: "roasting-pans",
       category: "cook-ware",
@@ -79,7 +73,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "7",
       name: "muffin pans",
       slug: "muffin-pans",
       category: "cook-ware",
@@ -92,7 +85,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "8",
       name: "spice racks",
       slug: "spice-racks",
       category: "food-storage and organizations",
@@ -105,7 +97,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "9",
       name: "Table Clothes",
       slug: "table-clothes",
       category: "kitchen Linens",
@@ -118,7 +109,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "10",
       name: "roasting-pans",
       slug: "adidas-fit-pant",
       category: "cook- ware",
@@ -131,7 +121,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "11",
       name: "dish towels",
       slug: "dish-towels",
       category: "kitchen Linens",
@@ -144,7 +133,6 @@ export const data = {
       description: "high quality product",
     },
     {
-      _id: "12",
       name: "lunch boxes",
       slug: "lunch-boxes",
       category: "food-storage",
