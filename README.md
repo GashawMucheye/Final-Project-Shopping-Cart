@@ -128,3 +128,11 @@ npm install mongoose
 ```
 
 - connect to mongodb database
+
+20. Seed Sample Data
+
+- create product model
+- create User Model
+- create seed route
+- use route in server.js
+- seed sample product
