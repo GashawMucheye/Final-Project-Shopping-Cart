@@ -116,3 +116,15 @@ npm install react-bootstrap bootstrap
 - create sign in form
 - add email and password
 - add signin button
+
+19. Connect To MongooDB Database
+
+- create atlas mongoodb database
+- install local mongodb database
+- npm install mongoose
+
+```js
+npm install mongoose
+```
+
+- connect to mongodb database
