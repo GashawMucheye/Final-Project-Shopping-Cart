@@ -3,6 +3,7 @@ import HomeScreen from "../screens/HomeScreen";
 import ProductScreen from "../screens/ProductScreen";
 import { Container } from "react-bootstrap";
 import CartScreen from "../screens/CartScreen";
+import SignInScreen from "../screens/SignInScreen";
 
 function Main() {
   return (
@@ -13,6 +14,7 @@ function Main() {
           <Route path="/product/:slug" element={<ProductScreen />} />
           <Route path="/" element={<HomeScreen />} />
           <Route path="/cart" element={<CartScreen />} />
+          <Route path="/Signin" element={<SignInScreen />} />
         </Routes>
       </Container>
     </main>
