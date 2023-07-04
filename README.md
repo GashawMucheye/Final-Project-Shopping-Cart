@@ -142,3 +142,9 @@ npm install mongoose
 - create user model
 - seed sample users
 - create user routes
+
+22. Create Signin Backend Api
+
+- create signin api
+- npm install jsonwebtoken
+- define generateToken
