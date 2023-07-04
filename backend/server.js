@@ -1,5 +1,5 @@
 import express from "express";
-import { data } from "./data.js";
+// import { data } from "./data.js";
 import { config } from "dotenv";
 import colors from "colors";
 import seedRouter from "./routes/seedRoutes.js";
