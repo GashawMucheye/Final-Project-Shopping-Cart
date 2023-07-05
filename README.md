@@ -148,3 +148,9 @@ npm install mongoose
 - create signin api
 - npm install jsonwebtoken
 - define generateToken
+
+23. Complete Signin Screen
+
+- handle submit action
+- save token in store and local storage
+- show user name in header
