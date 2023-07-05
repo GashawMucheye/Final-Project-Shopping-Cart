@@ -1,5 +1,4 @@
 import Navbars from "./Navbars";
-
 const Header = () => {
   return (
     <header>
