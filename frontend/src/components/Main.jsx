@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import CartScreen from "../screens/CartScreen";
 import SignInScreen from "../screens/SignInScreen";
 import ShippingAddressScreen from "../screens/ShippingAddressScreen";
+import SignupScreen from "../screens/SignupScreen";
 // import PaymentScreen from "../screens/PaymentScreen";
 
 function Main() {
@@ -17,6 +18,7 @@ function Main() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
+          <Route path="/Signup" element={<SignupScreen />} />
           <Route path="/shipping" element={<ShippingAddressScreen />} />
           {/* <Route path="/payment" element={<PaymentScreen />} /> */}
         </Routes>
