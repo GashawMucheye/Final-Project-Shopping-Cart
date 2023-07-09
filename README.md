@@ -171,3 +171,9 @@ npm install mongoose
 
 - create input forms
 - handle submit
+
+27. Create Place Order Screen
+
+- show cart items, payment and address
+- handle place order action
+- create order create api
