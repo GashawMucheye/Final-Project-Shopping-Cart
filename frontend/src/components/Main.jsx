@@ -6,7 +6,7 @@ import CartScreen from "../screens/CartScreen";
 import SignInScreen from "../screens/SignInScreen";
 import ShippingAddressScreen from "../screens/ShippingAddressScreen";
 import SignupScreen from "../screens/SignupScreen";
-// import PaymentScreen from "../screens/PaymentScreen";
+import PaymentMethodScreen from "../screens/PaymentMethodScreen";
 
 function Main() {
   return (
@@ -20,7 +20,7 @@ function Main() {
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
           <Route path="/shipping" element={<ShippingAddressScreen />} />
-          {/* <Route path="/payment" element={<PaymentScreen />} /> */}
+          <Route path="/payment" element={<PaymentMethodScreen />} />
         </Routes>
       </Container>
     </main>
