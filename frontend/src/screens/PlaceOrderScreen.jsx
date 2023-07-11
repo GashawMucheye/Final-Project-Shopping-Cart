@@ -1,13 +1,37 @@
 import { Col, Row, Card, Button, ListGroup } from "react-bootstrap";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { Helmet } from "react-helmet-async";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useReducer } from "react";
 import { Store } from "../contextApi/Store";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import Loading from "../components/Loading";
+import { getError } from "../utils.js";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "CREATE_REQUEST":
+      return { ...state, loading: true };
+    case "CREATE_SUCCESS":
+      return { ...state, loading: false };
+    case "FAIL":
+      return { ...state, loading: false };
+
+    default:
+      return state;
+  }
+};
+
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
+
+  const [{ loading }, dispatch] = useReducer(reducer, {
+    loading: false,
+    error: "",
+  });
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { cart } = state;
+  const { cart, userInfo } = state;
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; //123.2345=>123.23
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
@@ -15,7 +39,35 @@ const PlaceOrderScreen = () => {
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
   cart.taxPrice = round2(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-  const placeOrderHandler = async () => {};
+  const placeOrderHandler = async () => {
+    try {
+      dispatch({ type: "CREATE_REQUEST" });
+      const { data } = await axios.post(
+        "/api/orders",
+        {
+          orderItems: cart.cartItems,
+          shippingAddress: cart.shippingAddress,
+          paymentMethod: cart.paymentMethod,
+          itemsPrice: cart.itemsPrice,
+          shippingPrice: cart.shippingPrice,
+          taxPrice: cart.taxPrice,
+          totalPrice: cart.totalPrice,
+        },
+        {
+          headers: {
+            authorization: `Bearer${userInfo.token}`,
+          },
+        }
+      );
+      ctxDispatch({ type: "CART_CLEAR" });
+      dispatch({ type: "CREATE_SUCCESS" });
+      localStorage.removeItem("cartItems");
+      navigate(`/order/${data.order._id}`);
+    } catch (err) {
+      dispatch({ type: "CREATE_FAIL" });
+      toast.error(getError(err));
+    }
+  };
 
   useEffect(() => {
     if (!cart.paymentMethod) {
@@ -118,6 +170,7 @@ const PlaceOrderScreen = () => {
                     >
                       Place Order
                     </Button>
+                    {loading && <Loading></Loading>}
                   </div>
                 </ListGroup.Item>
               </ListGroup>
