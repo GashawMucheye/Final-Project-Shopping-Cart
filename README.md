@@ -177,3 +177,10 @@ npm install mongoose
 - show cart items, payment and address
 - handle place order action
 - create order create api
+
+28. Implement Place Order Action
+
+- handle place order action
+- create order create api
+
+29. creating pagination
