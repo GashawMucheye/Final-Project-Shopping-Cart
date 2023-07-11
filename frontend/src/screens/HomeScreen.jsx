@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import logger from "use-reducer-logger";
 import { Row, Col } from "react-bootstrap";
@@ -6,6 +6,7 @@ import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading";
 import MessageBox from "../components/MessageBox";
+import PaginationIt from "../components/Pagination";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -27,6 +28,8 @@ const HomeScreen = () => {
     loading: true,
     error: "",
   });
+  const [currentPage, setCurrnentPage] = useState(1);
+  const [postsPerPage] = useState(4);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
@@ -39,6 +42,14 @@ const HomeScreen = () => {
     };
     fetchData();
   }, []);
+  //get current posts
+  const indexOfLastPosts = currentPage * postsPerPage; //giveme10.
+  const indexOfFirstPost = indexOfLastPosts - postsPerPage; //give me 0.
+  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPosts); //give me(0,10)
+
+  const paginate = (pageNumber) => {
+    setCurrnentPage(pageNumber);
+  };
   return (
     <div>
       <Helmet>
@@ -52,11 +63,17 @@ const HomeScreen = () => {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
-            {products.map((product) => (
+            {currentPosts.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product} />
               </Col>
             ))}
+            <PaginationIt
+              className="bg-info"
+              postsPerPage={postsPerPage}
+              totalPosts={products.length}
+              paginate={paginate}
+            />
           </Row>
         )}
       </div>
