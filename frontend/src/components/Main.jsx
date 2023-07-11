@@ -8,6 +8,7 @@ import ShippingAddressScreen from "../screens/ShippingAddressScreen";
 import SignupScreen from "../screens/SignupScreen";
 import PaymentMethodScreen from "../screens/PaymentMethodScreen";
 import PlaceOrderScreen from "../screens/PlaceOrderScreen";
+import PaginationIt from "./Pagination";
 
 function Main() {
   return (
@@ -17,6 +18,7 @@ function Main() {
         <Routes>
           <Route path="/product/:slug" element={<ProductScreen />} />
           <Route path="/" element={<HomeScreen />} />
+          <Route path="/!#" element={<PaginationIt />} />
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
