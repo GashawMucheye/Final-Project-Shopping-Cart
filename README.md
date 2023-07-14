@@ -190,3 +190,15 @@ npm install mongoose
 - create backend api for order/:id
 - fetch order api in frontend
 - show order information in 2 cloumns
+
+31. Pay Order By Paypal
+
+- generate paypal client id
+- create api to return client id
+- install react-paypal-js
+- use PayPalScriptsProvider in main.jsx
+- use usePayPalScriptReducer in order screen
+- implement loadPaypalScript function
+- render paypal button
+- implement onApprove payment function
+- create pay order api in backend
