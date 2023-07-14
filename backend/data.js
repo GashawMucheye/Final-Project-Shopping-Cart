@@ -21,7 +21,7 @@ export const data = {
       slug: "heavy-pot",
       category: "Cook-ware",
       image: "/images/pic1.jpg",
-      price: 120,
+      price: 2,
       countInStock: 0,
       brand: "Nike",
       rating: 0.5,
