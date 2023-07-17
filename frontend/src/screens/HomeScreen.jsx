@@ -1,13 +1,12 @@
 import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import logger from "use-reducer-logger";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading";
 import MessageBox from "../components/MessageBox";
-import PaginationIt from "../components/Pagination";
-
+import ReactPaginate from "react-paginate";
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -28,8 +27,9 @@ const HomeScreen = () => {
     loading: true,
     error: "",
   });
-  const [currentPage, setCurrnentPage] = useState(1);
-  const [postsPerPage] = useState(4);
+  const [pageNumber, setPageNumber] = useState(0);
+  const productPerPage = 4;
+  const pageVisited = pageNumber * productPerPage;
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
@@ -42,13 +42,13 @@ const HomeScreen = () => {
     };
     fetchData();
   }, []);
-  //get current posts
-  const indexOfLastPosts = currentPage * postsPerPage; //giveme10.
-  const indexOfFirstPost = indexOfLastPosts - postsPerPage; //give me 0.
-  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPosts); //give me(0,10)
-
-  const paginate = (pageNumber) => {
-    setCurrnentPage(pageNumber);
+  const currentProducts = products.slice(
+    pageVisited,
+    pageVisited + productPerPage
+  );
+  const pageCount = Math.ceil(products.length / productPerPage);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
   };
   return (
     <div>
@@ -64,17 +64,24 @@ const HomeScreen = () => {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
-            {currentPosts.map((product) => (
+            {currentProducts.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product} />
               </Col>
             ))}
-            <PaginationIt
-              className="bg-info"
-              postsPerPage={postsPerPage}
-              totalPosts={products.length}
-              paginate={paginate}
-            />
+            <Container className="bg-danger py-2">
+              <ReactPaginate
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"paginationBttns"}
+                previousLinkClassName={"previousBttn"}
+                nextLinkClassName={"nextBttn"}
+                disabledClassName={"paginationDisabled"}
+                activeClassName={"paginationActive"}
+              />
+            </Container>
           </Row>
         )}
       </div>
