@@ -10,6 +10,7 @@ import PaymentMethodScreen from "../screens/PaymentMethodScreen";
 import PlaceOrderScreen from "../screens/PlaceOrderScreen";
 import OrderScreen from "../screens/OrderScreen";
 import OrderHistoryScreen from "../screens/OrderHistoryScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 function Main() {
   return (
@@ -23,6 +24,7 @@ function Main() {
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
           <Route path="/shipping" element={<ShippingAddressScreen />} />
           <Route path="/payment" element={<PaymentMethodScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
