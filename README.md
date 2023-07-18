@@ -208,3 +208,10 @@ npm install mongoose
 - create order screen
 - create order history api
 - use api in the frontend
+
+33. Create Profile Screen
+
+- get user info from content
+- show user information
+- create user update api
+- update user info
