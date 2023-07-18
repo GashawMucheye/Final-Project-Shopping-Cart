@@ -13,6 +13,7 @@ const Navbars = ({ brandName }) => {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
     localStorage.removeItem("paymentMethod");
+    window.location.href = "/signin";
   };
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -22,7 +23,6 @@ const Navbars = ({ brandName }) => {
             <strong> {brandName}</strong>
           </Navbar.Brand>
         </LinkContainer>
-        {/* <Link to="/About">About</Link> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto w-100 justify-content-end">
