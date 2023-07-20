@@ -23,4 +23,9 @@ const GetFindById = expressAsyncHandler(async (req, res) => {
     res.status(404).send({ message: "Product Not Found" });
   }
 });
-export { getProducts, getFindBySlug, GetFindById };
+const getCategories = expressAsyncHandler(async (req, res) => {
+  const categories = await Product.find().distinct("category");
+  res.send(categories);
+});
+
+export { getProducts, getFindBySlug, GetFindById, getCategories };
