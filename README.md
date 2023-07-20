@@ -215,3 +215,8 @@ npm install mongoose
 - show user information
 - create user update api
 - update user info
+
+34. Add Sidebar and Search Box
+
+- add sidebar
+- add search box
