@@ -1,10 +1,18 @@
 import { useContext } from "react";
-import { Navbar, Container, Nav, Badge, NavDropdown } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Badge,
+  NavDropdown,
+  Button,
+} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Store } from "../contextApi/Store";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-const Navbars = ({ brandName }) => {
+import SearchBox from "./SearchBox";
+const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
@@ -15,9 +23,13 @@ const Navbars = ({ brandName }) => {
     localStorage.removeItem("paymentMethod");
     window.location.href = "/signin";
   };
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container className="bg-info">
+        <Button variant="dark" onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+          <i className="fas fa-bars"></i>
+        </Button>
         <LinkContainer to="/">
           <Navbar.Brand>
             <strong> {brandName}</strong>
@@ -25,6 +37,7 @@ const Navbars = ({ brandName }) => {
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
+          <SearchBox />
           <Nav className="me-auto w-100 justify-content-end">
             <Link to="/cart" className="nav-link">
               <FaShoppingCart className="text-warning" />
