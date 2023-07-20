@@ -1,8 +1,12 @@
 import Navbars from "./Navbars";
-const Header = () => {
+const Header = ({ sidebarIsOpen, setSidebarIsOpen }) => {
   return (
     <header>
-      <Navbars brandName="Senays" />
+      <Navbars
+        brandName="Senays"
+        setSidebarIsOpen={setSidebarIsOpen}
+        sidebarIsOpen={sidebarIsOpen}
+      />
     </header>
   );
 };
