@@ -6,7 +6,7 @@ import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading";
 import MessageBox from "../components/MessageBox";
-import ReactPaginate from "react-paginate";
+// import ReactPaginate from "react-paginate";
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -42,14 +42,14 @@ const HomeScreen = () => {
     };
     fetchData();
   }, []);
-  const currentProducts = products.slice(
-    pageVisited,
-    pageVisited + productPerPage
-  );
-  const pageCount = Math.ceil(products.length / productPerPage);
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
+  // const currentProducts = products.slice(
+  //   pageVisited,
+  //   pageVisited + productPerPage
+  // );
+  // const pageCount = Math.ceil(products.length / productPerPage);
+  // const changePage = ({ selected }) => {
+  //   setPageNumber(selected);
+  // };
   return (
     <div>
       <Helmet>
@@ -64,12 +64,12 @@ const HomeScreen = () => {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
-            {currentProducts.map((product) => (
+            {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product} />
               </Col>
             ))}
-            <Container className="bg-danger py-2">
+            {/* <Container className="bg-danger py-2">
               <ReactPaginate
                 previousLabel={"Previous"}
                 nextLabel={"Next"}
@@ -81,7 +81,7 @@ const HomeScreen = () => {
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginationActive"}
               />
-            </Container>
+            </Container> */}
           </Row>
         )}
       </div>
