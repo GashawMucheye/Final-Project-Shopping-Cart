@@ -11,17 +11,17 @@ import PlaceOrderScreen from "../screens/PlaceOrderScreen";
 import OrderScreen from "../screens/OrderScreen";
 import OrderHistoryScreen from "../screens/OrderHistoryScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import SearchScreen from "../screens/SearchScreen";
 
 function Main() {
   return (
     <main>
       <Container className="my-2">
-        {/* <section className="mt-3"></section> */}
         <Routes>
           <Route path="/product/:slug" element={<ProductScreen />} />
           <Route path="/" element={<HomeScreen />} />
-          {/* <Route path="/!#" element={<PaginationIt />} /> */}
           <Route path="/cart" element={<CartScreen />} />
+          <Route path="/search" element={<SearchScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
           <Route path="/profile" element={<ProfileScreen />} />
