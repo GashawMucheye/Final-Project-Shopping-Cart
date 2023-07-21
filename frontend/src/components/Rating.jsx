@@ -1,4 +1,4 @@
-const Rating = ({ rating, numReviews }) => {
+const Rating = ({ rating, numReviews, caption }) => {
   return (
     <div className="rating text-warning">
       <span>
@@ -59,7 +59,11 @@ const Rating = ({ rating, numReviews }) => {
           // style={{ color }}
         />
       </span>
-      <span className="text-dark"> {numReviews} reviews</span>
+      {caption ? (
+        <span>{caption}</span>
+      ) : (
+        <span>{" " + numReviews + " reviews"}</span>
+      )}
     </div>
   );
 };
