@@ -220,3 +220,9 @@ npm install mongoose
 
 - add sidebar
 - add search box
+
+35. Create Search Screen
+
+- show filters
+- create api for searching products
+- dispalay results
