@@ -26,7 +26,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Container className="bg-info">
+      <Container>
         <Button variant="dark" onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
           <i className="fas fa-bars"></i>
         </Button>

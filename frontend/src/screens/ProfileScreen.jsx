@@ -1,17 +1,17 @@
-import { useContext, useReducer, useState } from "react";
-import { Store } from "../contextApi/Store";
-import { Helmet } from "react-helmet-async";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import { toast } from "react-toastify";
-import { getError } from "../utils";
-import axios from "axios";
+import { useContext, useReducer, useState } from 'react';
+import { Store } from '../contextApi/Store';
+import { Helmet } from 'react-helmet-async';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import { toast } from 'react-toastify';
+import { getError } from '../utils';
+import axios from 'axios';
 
 const actions = {
-  UPDATE_REQUEST: "UPDATE_REQUEST",
-  UPDATE_SUCCESS: "UPDATE_SUCCESS",
-  UPDATE_FAIL: "UPDATE_Fail",
+  UPDATE_REQUEST: 'UPDATE_REQUEST',
+  UPDATE_SUCCESS: 'UPDATE_SUCCESS',
+  UPDATE_FAIL: 'UPDATE_Fail',
 };
 
 const reducer = (state, action) => {
@@ -35,8 +35,8 @@ const ProfileScreen = () => {
   const { userInfo } = state;
   const [name, setName] = useState(userInfo.name);
   const [email, setEmail] = useState(userInfo.email);
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
     loadingUpdate: false,
   });
@@ -56,9 +56,9 @@ const ProfileScreen = () => {
         }
       );
       dispatch({ type: actions.UPDATE_SUCCESS });
-      ctxDispatch({ type: "USER_SIGNIN", payload: data });
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      toast.success("User updated successifully");
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      toast.success('User updated successifully');
     } catch (err) {
       dispatch({ type: actions.UPDATE_FAIL });
       toast.error(getError(err));

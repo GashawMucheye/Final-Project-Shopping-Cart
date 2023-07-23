@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { Store } from "../contextApi/Store";
-import { Helmet } from "react-helmet-async";
-import { Row, Col, ListGroup, Button, Card } from "react-bootstrap";
-import MessageBox from "../components/MessageBox";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useContext } from 'react';
+import { Store } from '../contextApi/Store';
+import { Helmet } from 'react-helmet-async';
+import { Row, Col, ListGroup, Button, Card } from 'react-bootstrap';
+import MessageBox from '../components/MessageBox';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const CartScreen = () => {
   const navigate = useNavigate();
@@ -19,15 +19,15 @@ const CartScreen = () => {
       return;
     }
     ctxDispatch({
-      type: "CART_ADD_ITEM",
+      type: 'CART_ADD_ITEM',
       payload: { ...item, quantity },
     });
   };
   const removeItemHandler = (item) => {
-    ctxDispatch({ type: "CART_REMOVE_ITEM", payload: item });
+    ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
   const checkoutHandler = () => {
-    navigate("/signIn?redirect=/shipping");
+    navigate('/signIn?redirect=/shipping');
   };
   return (
     <div className="text-info">
@@ -52,7 +52,7 @@ const CartScreen = () => {
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
                       />
-                      {""}
+                      {''}
                       <Link to={`/product/${item.slug}`}>{item.name}</Link>
                     </Col>
                     <Col md={3}>
@@ -67,8 +67,8 @@ const CartScreen = () => {
                           className="fas fa-minus-circle
                         "
                         ></i>
-                      </Button>{" "}
-                      <span>{item.quantity}</span>{" "}
+                      </Button>{' '}
+                      <span>{item.quantity}</span>{' '}
                       <Button
                         variant="light"
                         onClick={() =>
@@ -103,7 +103,7 @@ const CartScreen = () => {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <h3>
-                    Subtotal({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
+                    Subtotal({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                     items):$
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>

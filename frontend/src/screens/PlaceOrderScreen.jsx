@@ -1,21 +1,21 @@
-import { Col, Row, Card, Button, ListGroup } from "react-bootstrap";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { Helmet } from "react-helmet-async";
-import { useContext, useEffect, useReducer } from "react";
-import { Store } from "../contextApi/Store";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import axios from "axios";
-import Loading from "../components/Loading";
-import { getError } from "../utils.js";
+import { Col, Row, Card, Button, ListGroup } from 'react-bootstrap';
+import CheckoutSteps from '../components/CheckoutSteps';
+import { Helmet } from 'react-helmet-async';
+import { useContext, useEffect, useReducer } from 'react';
+import { Store } from '../contextApi/Store';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import Loading from '../components/Loading';
+import { getError } from '../utils.js';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "CREATE_REQUEST":
+    case 'CREATE_REQUEST':
       return { ...state, loading: true };
-    case "CREATE_SUCCESS":
+    case 'CREATE_SUCCESS':
       return { ...state, loading: false };
-    case "FAIL":
+    case 'FAIL':
       return { ...state, loading: false };
 
     default:
@@ -28,7 +28,7 @@ const PlaceOrderScreen = () => {
 
   const [{ loading }, dispatch] = useReducer(reducer, {
     loading: false,
-    error: "",
+    error: '',
   });
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
@@ -41,9 +41,9 @@ const PlaceOrderScreen = () => {
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
   const placeOrderHandler = async () => {
     try {
-      dispatch({ type: "CREATE_REQUEST" });
+      dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        "/api/orders",
+        '/api/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
@@ -59,19 +59,19 @@ const PlaceOrderScreen = () => {
           },
         }
       );
-      ctxDispatch({ type: "CART_CLEAR" });
-      dispatch({ type: "CREATE_SUCCESS" });
-      localStorage.removeItem("cartItems");
+      ctxDispatch({ type: 'CART_CLEAR' });
+      dispatch({ type: 'CREATE_SUCCESS' });
+      localStorage.removeItem('cartItems');
       navigate(`/order/${data.order._id}`);
     } catch (err) {
-      dispatch({ type: "CREATE_FAIL" });
+      dispatch({ type: 'CREATE_FAIL' });
       toast.error(getError(err));
     }
   };
 
   useEffect(() => {
     if (!cart.paymentMethod) {
-      navigate("/payment");
+      navigate('/payment');
     }
   }, [cart, navigate]);
   return (
@@ -114,7 +114,7 @@ const PlaceOrderScreen = () => {
                           src={item.image}
                           alt={item.name}
                           className="img-fluid-rounded img-thumbnail"
-                        />{" "}
+                        />{' '}
                       </Col>
                       <Col md={3}>
                         <span>{item.quantity}</span>

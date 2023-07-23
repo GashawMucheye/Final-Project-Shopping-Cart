@@ -1,42 +1,42 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet-async';
 
-import { HiOutlineMail } from "react-icons/hi";
-import { RiLockPasswordFill } from "react-icons/ri";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Container, Form, Button } from "react-bootstrap";
-import { Store } from "../contextApi/Store";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { getError } from "../utils";
+import { HiOutlineMail } from 'react-icons/hi';
+import { RiLockPasswordFill } from 'react-icons/ri';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Container, Form, Button } from 'react-bootstrap';
+import { Store } from '../contextApi/Store';
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { getError } from '../utils';
 const SignupScreen = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
-  const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/";
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      toast.error('Passwords do not match');
       return;
     }
     try {
-      const { data } = await axios.post("/api/users/signup", {
+      const { data } = await axios.post('/api/users/signup', {
         name,
         email,
         password,
       });
-      ctxDispatch({ type: "USER_SIGNIN", payload: data });
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      navigate(redirect || "/");
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      navigate(redirect || '/');
     } catch (err) {
       toast.error(getError(err));
     }

@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
-import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
-import { Store } from "../contextApi/Store";
-import CheckoutSteps from "../components/CheckoutSteps";
+import { useContext, useEffect, useState } from 'react';
+import { Form, Button, Container } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
+import { Store } from '../contextApi/Store';
+import CheckoutSteps from '../components/CheckoutSteps';
 const ShippingAddressScreen = () => {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -11,22 +11,22 @@ const ShippingAddressScreen = () => {
     userInfo,
     cart: { shippingAddress },
   } = state;
-  const [fullName, setFullName] = useState(shippingAddress.fullName || "");
-  const [address, setAddress] = useState(shippingAddress.address || "");
-  const [city, setCity] = useState(shippingAddress.city || "");
+  const [fullName, setFullName] = useState(shippingAddress.fullName || '');
+  const [address, setAddress] = useState(shippingAddress.address || '');
+  const [city, setCity] = useState(shippingAddress.city || '');
   const [postalCode, setPostalCode] = useState(
-    shippingAddress.postalCode || ""
+    shippingAddress.postalCode || ''
   );
-  const [country, setCountry] = useState(shippingAddress.country || "");
+  const [country, setCountry] = useState(shippingAddress.country || '');
   useEffect(() => {
     if (!userInfo) {
-      navigate("/signin?redirect=/shipping");
+      navigate('/signin?redirect=/shipping');
     }
   }, [userInfo, navigate]);
   const submitHandler = (e) => {
     e.preventDefault();
     ctxDispatch({
-      type: "SAVE_SHIPPING_ADDRESS",
+      type: 'SAVE_SHIPPING_ADDRESS',
       payload: {
         fullName,
         address,
@@ -37,7 +37,7 @@ const ShippingAddressScreen = () => {
     });
 
     localStorage.setItem(
-      "shippingAddress",
+      'shippingAddress',
       JSON.stringify({
         fullName,
         address,
@@ -46,7 +46,7 @@ const ShippingAddressScreen = () => {
         country,
       })
     );
-    navigate("/payment");
+    navigate('/payment');
   };
 
   return (

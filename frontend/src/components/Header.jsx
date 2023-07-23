@@ -1,4 +1,4 @@
-import Navbars from "./Navbars";
+import Navbars from './Navbars';
 const Header = ({ sidebarIsOpen, setSidebarIsOpen }) => {
   return (
     <header>

@@ -12,6 +12,7 @@ import OrderScreen from "../screens/OrderScreen";
 import OrderHistoryScreen from "../screens/OrderHistoryScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import SearchScreen from "../screens/SearchScreen";
+import ProtectedRoute from "./ProtectedRoute";
 
 function Main() {
   return (
@@ -24,12 +25,33 @@ function Main() {
           <Route path="/search" element={<SearchScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
-          <Route path="/profile" element={<ProfileScreen />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfileScreen />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/shipping" element={<ShippingAddressScreen />} />
           <Route path="/payment" element={<PaymentMethodScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
-          <Route path="/order/:id" element={<OrderScreen />} />
-          <Route path="/orderhistory" element={<OrderHistoryScreen />} />
+          <Route
+            path="/order/:id"
+            element={
+              <ProtectedRoute>
+                <OrderScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/orderhistory"
+            element={
+              <ProtectedRoute>
+                <OrderHistoryScreen />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Container>
     </main>

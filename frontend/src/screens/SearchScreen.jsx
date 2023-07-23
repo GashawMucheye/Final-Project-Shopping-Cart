@@ -1,19 +1,19 @@
-import React, { useEffect, useReducer, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getError } from "../utils";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { Helmet } from "react-helmet-async";
-import { Row, Col, Button } from "react-bootstrap";
-import Rating from "../components/Rating";
-import Loading from "../components/Loading";
-import MessageBox from "../components/MessageBox";
-import Product from "../components/Product";
+import React, { useEffect, useReducer, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getError } from '../utils';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
+import { Row, Col, Button } from 'react-bootstrap';
+import Rating from '../components/Rating';
+import Loading from '../components/Loading';
+import MessageBox from '../components/MessageBox';
+import Product from '../components/Product';
 
 const actions = {
-  FETCH_REQUEST: "FETCH_REQUEST",
-  FETCH_SUCCESS: "FETCH_SUCCESS",
-  FETCH_FAIL: "FETCH_Fail",
+  FETCH_REQUEST: 'FETCH_REQUEST',
+  FETCH_SUCCESS: 'FETCH_SUCCESS',
+  FETCH_FAIL: 'FETCH_Fail',
 };
 
 const reducer = (state, action) => {
@@ -41,23 +41,23 @@ const reducer = (state, action) => {
 
 const prices = [
   {
-    name: "$1 to $50",
-    value: "1-50",
+    name: '$1 to $50',
+    value: '1-50',
   },
   {
-    name: "$51 to $200",
-    value: "51-200",
+    name: '$51 to $200',
+    value: '51-200',
   },
   {
-    name: "$201 to $1000",
-    value: "201-1000",
+    name: '$201 to $1000',
+    value: '201-1000',
   },
 ];
 export const ratings = [
-  { name: "4stars & up", rating: 4 },
-  { name: "3stars & up", rating: 3 },
-  { name: "2stars & up", rating: 2 },
-  { name: "1stars & up", rating: 1 },
+  { name: '4stars & up', rating: 4 },
+  { name: '3stars & up', rating: 3 },
+  { name: '2stars & up', rating: 2 },
+  { name: '1stars & up', rating: 1 },
 ];
 
 const SearchScreen = () => {
@@ -65,15 +65,15 @@ const SearchScreen = () => {
   const { search } = useLocation();
   const sp = new URLSearchParams(search); // /search?category=Shirts
   console.log(sp);
-  const category = sp.get("category") || "all";
-  const query = sp.get("query") || "all";
-  const price = sp.get("price") || "all";
-  const rating = sp.get("rating") || "all";
-  const order = sp.get("order") || "newest";
-  const page = sp.get("page") || "1";
+  const category = sp.get('category') || 'all';
+  const query = sp.get('query') || 'all';
+  const price = sp.get('price') || 'all';
+  const rating = sp.get('rating') || 'all';
+  const order = sp.get('order') || 'newest';
+  const page = sp.get('page') || '1';
 
   const [{ loading, error, products, pages, countProducts }, dispatch] =
-    useReducer(reducer, { loading: true, error: "" });
+    useReducer(reducer, { loading: true, error: '' });
 
   useEffect(() => {
     const fetchDta = async () => {
@@ -124,8 +124,8 @@ const SearchScreen = () => {
             <ul>
               <li>
                 <Link
-                  className={"all" === category ? "text-bold" : ""}
-                  to={getFilterUrl({ category: "all" })}
+                  className={'all' === category ? 'text-bold' : ''}
+                  to={getFilterUrl({ category: 'all' })}
                 >
                   Any
                 </Link>
@@ -133,7 +133,7 @@ const SearchScreen = () => {
               {categories.map((c) => (
                 <li key={c}>
                   <Link
-                    className={c === category ? "text-bold" : ""}
+                    className={c === category ? 'text-bold' : ''}
                     to={getFilterUrl({ category: c })}
                   >
                     {c}
@@ -147,8 +147,8 @@ const SearchScreen = () => {
             <ul>
               <li>
                 <Link
-                  className={"all" === price ? "text-bold" : ""}
-                  to={getFilterUrl({ price: "all" })}
+                  className={'all' === price ? 'text-bold' : ''}
+                  to={getFilterUrl({ price: 'all' })}
                 >
                   Any
                 </Link>
@@ -157,7 +157,7 @@ const SearchScreen = () => {
                 <li key={p.value}>
                   <Link
                     to={getFilterUrl({ price: p.value })}
-                    className={p.value === price ? "text-bold" : ""}
+                    className={p.value === price ? 'text-bold' : ''}
                   >
                     {p.name}
                   </Link>
@@ -172,18 +172,18 @@ const SearchScreen = () => {
                 <li key={r.name}>
                   <Link
                     to={getFilterUrl({ rating: r.rating })}
-                    className={`${r.rating}` === `${rating}` ? "text-bold" : ""}
+                    className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
                   >
-                    <Rating caption={" & up"} rating={r.rating}></Rating>
+                    <Rating caption={' & up'} rating={r.rating}></Rating>
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
-                  to={getFilterUrl({ rating: "all" })}
-                  className={rating === "all" ? "text-bold" : ""}
+                  to={getFilterUrl({ rating: 'all' })}
+                  className={rating === 'all' ? 'text-bold' : ''}
                 >
-                  <Rating caption={" & up"} rating={0}></Rating>
+                  <Rating caption={' & up'} rating={0}></Rating>
                 </Link>
               </li>
             </ul>
@@ -199,18 +199,18 @@ const SearchScreen = () => {
               <Row className="justify-content-between mb-3">
                 <Col md={6}>
                   <div>
-                    {countProducts === 0 ? "No" : countProducts} Results
-                    {query !== "all" && " : " + query}
-                    {category !== "all" && " : " + category}
-                    {price !== "all" && " : Price " + price}
-                    {rating !== "all" && " : Rating " + rating + " & up"}
-                    {query !== "all" ||
-                    category !== "all" ||
-                    rating !== "all" ||
-                    price !== "all" ? (
+                    {countProducts === 0 ? 'No' : countProducts} Results
+                    {query !== 'all' && ' : ' + query}
+                    {category !== 'all' && ' : ' + category}
+                    {price !== 'all' && ' : Price ' + price}
+                    {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+                    {query !== 'all' ||
+                    category !== 'all' ||
+                    rating !== 'all' ||
+                    price !== 'all' ? (
                       <Button
                         variant="light"
-                        onClick={() => navigate("/search")}
+                        onClick={() => navigate('/search')}
                       >
                         <i className="fas fa-times-circle"></i>
                       </Button>
@@ -218,7 +218,7 @@ const SearchScreen = () => {
                   </div>
                 </Col>
                 <Col className="text-end">
-                  Sort by{" "}
+                  Sort by{' '}
                   <select
                     value={order}
                     onChange={(e) => {
@@ -252,7 +252,7 @@ const SearchScreen = () => {
                     to={getFilterUrl({ page: x + 1 })}
                   >
                     <Button
-                      className={Number(page) === x + 1 ? "text-bold" : ""}
+                      className={Number(page) === x + 1 ? 'text-bold' : ''}
                       variant="light"
                     >
                       {x + 1}

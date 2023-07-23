@@ -1,35 +1,35 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet-async';
 
-import { HiOutlineMail } from "react-icons/hi";
-import { RiLockPasswordFill } from "react-icons/ri";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Container, Form, Button } from "react-bootstrap";
-import { Store } from "../contextApi/Store";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { getError } from "../utils";
+import { HiOutlineMail } from 'react-icons/hi';
+import { RiLockPasswordFill } from 'react-icons/ri';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Container, Form, Button } from 'react-bootstrap';
+import { Store } from '../contextApi/Store';
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { getError } from '../utils';
 const SignInScreen = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
-  const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/";
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/users/signin", {
+      const { data } = await axios.post('/api/users/signin', {
         email,
         password,
       });
-      ctxDispatch({ type: "USER_SIGNIN", payload: data });
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      navigate(redirect || "/");
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      navigate(redirect || '/');
     } catch (err) {
       toast.error(getError(err));
     }

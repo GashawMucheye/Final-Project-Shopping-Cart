@@ -1,9 +1,9 @@
-import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Rating from "./Rating";
-import axios from "axios";
-import { useContext } from "react";
-import { Store } from "../contextApi/Store";
+import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Rating from './Rating';
+import axios from 'axios';
+import { useContext } from 'react';
+import { Store } from '../contextApi/Store';
 
 const Product = ({ product }) => {
   const { slug, image, name, rating, numReviews, price, countInStock } =
@@ -23,7 +23,7 @@ const Product = ({ product }) => {
       return;
     }
     ctxDispatch({
-      type: "CART_ADD_ITEM",
+      type: 'CART_ADD_ITEM',
       payload: { ...item, quantity },
     });
   };

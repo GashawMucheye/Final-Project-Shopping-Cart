@@ -226,3 +226,9 @@ npm install mongoose
 - show filters
 - create api for searching products
 - dispalay results
+
+36. create Admin menu
+
+- define protected rout component
+- define admin route component
+- add menu for admin in header

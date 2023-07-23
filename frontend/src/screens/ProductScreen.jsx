@@ -1,20 +1,20 @@
-import axios from "axios";
-import { useContext, useEffect, useReducer } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Row, Col, ListGroup, Badge, Card, Button } from "react-bootstrap";
-import Rating from "../components/Rating";
-import { Helmet } from "react-helmet-async";
-import Loading from "../components/Loading";
-import MessageBox from "../components/MessageBox";
-import { getError } from "../utils";
-import { Store } from "../contextApi/Store";
+import axios from 'axios';
+import { useContext, useEffect, useReducer } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Row, Col, ListGroup, Badge, Card, Button } from 'react-bootstrap';
+import Rating from '../components/Rating';
+import { Helmet } from 'react-helmet-async';
+import Loading from '../components/Loading';
+import MessageBox from '../components/MessageBox';
+import { getError } from '../utils';
+import { Store } from '../contextApi/Store';
 const reducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_REQUEST":
+    case 'FETCH_REQUEST':
       return { ...state, loading: true };
-    case "FETCH_SUCCESS":
+    case 'FETCH_SUCCESS':
       return { ...state, product: action.payload, loading: false };
-    case "FETCH_FAIL": {
+    case 'FETCH_FAIL': {
       return { ...state, loading: false, error: action.payload };
     }
     default:
@@ -28,16 +28,16 @@ const ProductScreen = () => {
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
     loading: true,
-    error: "",
+    error: '',
   });
   useEffect(() => {
     const fetchData = async () => {
-      dispatch({ type: "FETCH_REQUEST" });
+      dispatch({ type: 'FETCH_REQUEST' });
       try {
         const result = await axios.get(`/api/products/slug/${slug}`);
-        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
-        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
     };
     fetchData();
@@ -54,10 +54,10 @@ const ProductScreen = () => {
       return;
     }
     ctxDispatch({
-      type: "CART_ADD_ITEM",
+      type: 'CART_ADD_ITEM',
       payload: { ...product, quantity: quantity },
     });
-    navigate("/cart");
+    navigate('/cart');
   };
   return loading ? (
     <Loading />
