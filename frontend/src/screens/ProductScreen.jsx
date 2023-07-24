@@ -8,13 +8,19 @@ import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
 import { Store } from '../contextApi/Store';
+
+const actions = {
+  FETCH_REQUEST: 'FETCH_REQUEST',
+  FETCH_SUCCESS: 'FETCH_SUCCESS',
+  FETCH_FAIL: 'FETCH_FAIL',
+};
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'FETCH_REQUEST':
+    case actions.FETCH_REQUEST:
       return { ...state, loading: true };
-    case 'FETCH_SUCCESS':
+    case actions.FETCH_SUCCESS:
       return { ...state, product: action.payload, loading: false };
-    case 'FETCH_FAIL': {
+    case actions.FETCH_FAIL: {
       return { ...state, loading: false, error: action.payload };
     }
     default:
@@ -32,12 +38,12 @@ const ProductScreen = () => {
   });
   useEffect(() => {
     const fetchData = async () => {
-      dispatch({ type: 'FETCH_REQUEST' });
+      dispatch({ type: actions.FETCH_REQUEST });
       try {
         const result = await axios.get(`/api/products/slug/${slug}`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        dispatch({ type: actions.FETCH_SUCCESS, payload: result.data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        dispatch({ type: actions.FETCH_FAIL, payload: getError(err) });
       }
     };
     fetchData();
