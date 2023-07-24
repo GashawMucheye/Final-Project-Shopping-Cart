@@ -76,7 +76,7 @@ const deleteProducts = expressAsyncHandler(async (req, res) => {
 
   if (!product) {
     res.status(400);
-    throw new Error('Goal not found');
+    throw new Error('Product not found');
   }
 
   await product.deleteOne();
