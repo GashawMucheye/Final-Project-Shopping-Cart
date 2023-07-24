@@ -9,13 +9,19 @@ import axios from 'axios';
 import Loading from '../components/Loading';
 import { getError } from '../utils.js';
 
+const actions = {
+  CREATE_REQUEST: 'CREATE_REQUEST',
+  CREATE_SUCCESS: 'CREATE_SUCCESS',
+  CREATE_FAIL: 'CREATE_FAIL',
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'CREATE_REQUEST':
+    case actions.CREATE_REQUEST:
       return { ...state, loading: true };
-    case 'CREATE_SUCCESS':
+    case actions.CREATE_SUCCESS:
       return { ...state, loading: false };
-    case 'FAIL':
+    case actions.CREATE_FAIL:
       return { ...state, loading: false };
 
     default:
@@ -41,7 +47,7 @@ const PlaceOrderScreen = () => {
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
   const placeOrderHandler = async () => {
     try {
-      dispatch({ type: 'CREATE_REQUEST' });
+      dispatch({ type: actions.CREATE_REQUEST });
       const { data } = await axios.post(
         '/api/orders',
         {
@@ -60,11 +66,11 @@ const PlaceOrderScreen = () => {
         }
       );
       ctxDispatch({ type: 'CART_CLEAR' });
-      dispatch({ type: 'CREATE_SUCCESS' });
+      dispatch({ type: actions.CREATE_SUCCESS });
       localStorage.removeItem('cartItems');
       navigate(`/order/${data.order._id}`);
     } catch (err) {
-      dispatch({ type: 'CREATE_FAIL' });
+      dispatch({ type: actions.CREATE_FAIL });
       toast.error(getError(err));
     }
   };
