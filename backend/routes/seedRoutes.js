@@ -10,8 +10,8 @@ seedRouter.get('/', async (req, res) => {
   await Product.deleteMany({});
   //! insert all products in data.js to product model in mongodb
   const createdProducts = await Product.insertMany(data.products);
-  await Product.deleteMany({});
-  //! remove  all previoues records in product model
+
+  //! remove  all previoues records in user model
   await User.deleteMany({});
   //! insert all users in data.js to product model in mongodb
   const createdUsers = await User.insertMany(data.users);
