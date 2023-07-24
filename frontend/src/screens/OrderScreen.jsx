@@ -3,10 +3,7 @@ import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Card from 'react-bootstrap/Card';
+import { Row, Col, ListGroup, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
@@ -77,7 +74,7 @@ export default function OrderScreen() {
 
         toast.success('Order is paid');
       } catch (err) {
-        dispatch({ type: 'PAY_FAL', payload: getError(err) });
+        dispatch({ type: 'PAY_FAIL', payload: getError(err) });
         toast.error(getError(err));
       }
     });
