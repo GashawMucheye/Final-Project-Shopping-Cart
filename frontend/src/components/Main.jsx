@@ -1,18 +1,19 @@
-import { Route, Routes } from "react-router-dom";
-import HomeScreen from "../screens/HomeScreen";
-import ProductScreen from "../screens/ProductScreen";
-import { Container } from "react-bootstrap";
-import CartScreen from "../screens/CartScreen";
-import SignInScreen from "../screens/SignInScreen";
-import ShippingAddressScreen from "../screens/ShippingAddressScreen";
-import SignupScreen from "../screens/SignupScreen";
-import PaymentMethodScreen from "../screens/PaymentMethodScreen";
-import PlaceOrderScreen from "../screens/PlaceOrderScreen";
-import OrderScreen from "../screens/OrderScreen";
-import OrderHistoryScreen from "../screens/OrderHistoryScreen";
-import ProfileScreen from "../screens/ProfileScreen";
-import SearchScreen from "../screens/SearchScreen";
-import ProtectedRoute from "./ProtectedRoute";
+import { Route, Routes } from 'react-router-dom';
+import HomeScreen from '../screens/HomeScreen';
+import ProductScreen from '../screens/ProductScreen';
+import { Container } from 'react-bootstrap';
+import CartScreen from '../screens/CartScreen';
+import SignInScreen from '../screens/SignInScreen';
+import ShippingAddressScreen from '../screens/ShippingAddressScreen';
+import SignupScreen from '../screens/SignupScreen';
+import PaymentMethodScreen from '../screens/PaymentMethodScreen';
+import PlaceOrderScreen from '../screens/PlaceOrderScreen';
+import OrderScreen from '../screens/OrderScreen';
+import OrderHistoryScreen from '../screens/OrderHistoryScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import SearchScreen from '../screens/SearchScreen';
+import ProtectedRoute from './ProtectedRoute';
+import DashboardScreen from '../screens/DashboardScreen';
 
 function Main() {
   return (
@@ -25,6 +26,7 @@ function Main() {
           <Route path="/search" element={<SearchScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
+          <Route path="/dashboard" element={<DashboardScreen />} />
           <Route
             path="/profile"
             element={
@@ -36,6 +38,7 @@ function Main() {
           <Route path="/shipping" element={<ShippingAddressScreen />} />
           <Route path="/payment" element={<PaymentMethodScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
+
           <Route
             path="/order/:id"
             element={
