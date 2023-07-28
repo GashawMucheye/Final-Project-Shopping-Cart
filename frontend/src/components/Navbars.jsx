@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 import {
   Navbar,
   Container,
@@ -6,22 +6,22 @@ import {
   Badge,
   NavDropdown,
   Button,
-} from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
-import { Store } from "../contextApi/Store";
-import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import SearchBox from "./SearchBox";
+} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Store } from '../contextApi/Store';
+import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
+import SearchBox from './SearchBox';
 const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
   const signoutHandler = () => {
-    ctxDispatch({ type: "USER_SIGNOUT" });
-    localStorage.removeItem("userInfo");
-    localStorage.removeItem("shippingAddress");
-    localStorage.removeItem("paymentMethod");
-    window.location.href = "/signin";
+    ctxDispatch({ type: 'USER_SIGNOUT' });
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('paymentMethod');
+    window.location.href = '/signin';
   };
 
   return (
@@ -68,6 +68,22 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
               <Link className="nav-link" to="/signin">
                 SignIn
               </Link>
+            )}
+            {userInfo && userInfo.isAdmin && (
+              <NavDropdown title="Admin" id="admin-nav-dropdown">
+                <LinkContainer to="/dashboard">
+                  <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/productlist">
+                  <NavDropdown.Item>Products</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/orderlist">
+                  <NavDropdown.Item>Orders</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/userlist">
+                  <NavDropdown.Item>Users</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
             )}
           </Nav>
         </Navbar.Collapse>
