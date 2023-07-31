@@ -29,20 +29,19 @@ const GetFindById = expressAsyncHandler(async (req, res) => {
 
 const setProducts = expressAsyncHandler(async (req, res) => {
   const newProduct = new Product({
-    name: req.body.name,
-    slug: req.body.slug,
-    image: req.body.image,
-    brand: req.body.brand,
-    category: req.body.category,
-    description: req.body.description,
-    price: req.body.price,
-    countInStock: req.body.countInStock,
-    rating: req.body.rating,
-    numReviews: req.body.numReviews,
+    name: 'sample name ' + Date.now(),
+    slug: 'sample-name-' + Date.now(),
+    image: '/images/p1.jpg',
+    price: 0,
+    category: 'sample category',
+    brand: 'sample brand',
+    countInStock: 0,
+    rating: 0,
+    numReviews: 0,
+    description: 'sample description',
   });
   const product = await newProduct.save();
-
-  res.status(200).json(product);
+  res.send({ message: 'Product Created', product });
 });
 
 //! @desc  update products
@@ -89,6 +88,25 @@ const getCategories = expressAsyncHandler(async (req, res) => {
   res.send(categories);
 });
 const PAGE_SIZE = 3;
+
+const getAdmin = expressAsyncHandler(async (req, res) => {
+  const { query } = req;
+  const page = query.page || 1;
+  const pageSize = query.pageSize || PAGE_SIZE;
+
+  const products = await Product.find()
+    .skip(pageSize * (page - 1))
+    .limit(pageSize);
+  const countProducts = await Product.countDocuments();
+  res.send({
+    products,
+    countProducts,
+    page,
+    pages: Math.ceil(countProducts / pageSize),
+  });
+});
+
+// -----------------------------------------------------
 const getSearch = expressAsyncHandler(async (req, res) => {
   const { query } = req;
   const pageSize = query.pageSize || PAGE_SIZE;
@@ -173,4 +191,5 @@ export {
   setProducts,
   updateProducts,
   deleteProducts,
+  getAdmin,
 };
