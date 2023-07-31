@@ -50,6 +50,22 @@ const getUserByEmail = expressAsyncHandler(async (req, res) => {
   res.status(401).send({ message: 'Invalid email or password' });
 });
 
+//delete user by id
+
+const deleteUserById = expressAsyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    if (user.email === 'admin@example.com') {
+      res.status(400).send({ message: 'Can Not Delete Admin User' });
+      return;
+    }
+    await user.deleteOne();
+    res.send({ message: 'User Deleted' });
+  } else {
+    res.status(404).send({ message: 'User Not Found' });
+  }
+});
+
 const creatingSignup = expressAsyncHandler(async (req, res) => {
   const newUser = new User({
     name: req.body.name,
@@ -92,6 +108,7 @@ export {
   getUsers,
   getUserByEmail,
   getUserById,
+  deleteUserById,
   updateUserById,
   creatingSignup,
   updatingProfile,
