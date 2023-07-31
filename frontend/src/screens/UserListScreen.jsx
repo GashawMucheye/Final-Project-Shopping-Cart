@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { Helmet } from 'react-helmet-async';
 import Loading from '../components/Loading';
@@ -21,6 +22,18 @@ const reducer = (state, action) => {
       };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
+    case 'DELETE_REQUEST':
+      return { ...state, loadingDelete: true, successDelete: false };
+    case 'DELETE_SUCCESS':
+      return {
+        ...state,
+        loadingDelete: false,
+        successDelete: true,
+      };
+    case 'DELETE_FAIL':
+      return { ...state, loadingDelete: false };
+    case 'DELETE_RESET':
+      return { ...state, loadingDelete: false, successDelete: false };
 
     default:
       return state;
@@ -29,11 +42,11 @@ const reducer = (state, action) => {
 export default function UserListScreen() {
   const navigate = useNavigate();
 
-  const [{ loading, error, users }, dispatch] = useReducer(reducer, {
-    loading: true,
-    error: '',
-  });
-
+  const [{ loading, error, users, loadingDelete, successDelete }, dispatch] =
+    useReducer(reducer, {
+      loading: true,
+      error: '',
+    });
   const { state } = useContext(Store);
   const { userInfo } = state;
 
@@ -52,14 +65,40 @@ export default function UserListScreen() {
         });
       }
     };
-    fetchData();
-  }, [userInfo]);
+    if (successDelete) {
+      dispatch({ type: 'DELETE_RESET' });
+    } else {
+      fetchData();
+    }
+  }, [userInfo, successDelete]);
+
+  //delete handler
+  const deleteHandler = async (user) => {
+    if (window.confirm('Are you sure to delete?')) {
+      try {
+        dispatch({ type: 'DELETE_REQUEST' });
+        await axios.delete(`/api/users/${user._id}`, {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
+        toast.success('user deleted successfully');
+        dispatch({ type: 'DELETE_SUCCESS' });
+      } catch (error) {
+        toast.error(getError(error));
+        dispatch({
+          type: 'DELETE_FAIL',
+        });
+      }
+    }
+  };
+
   return (
     <div>
       <Helmet>
         <title>Users</title>
       </Helmet>
       <h1>Users</h1>
+      {loadingDelete && <Loading></Loading>}
+
       {loading ? (
         <Loading></Loading>
       ) : error ? (
@@ -90,6 +129,14 @@ export default function UserListScreen() {
                       onClick={() => navigate(`/admin/user/${user._id}`)}
                     >
                       Edit
+                    </Button>
+                    &nbsp;
+                    <Button
+                      type="button"
+                      variant="light"
+                      onClick={() => deleteHandler(user)}
+                    >
+                      Delete
                     </Button>
                   </td>
                 </td>
