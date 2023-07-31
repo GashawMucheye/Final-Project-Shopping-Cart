@@ -257,7 +257,19 @@ npm install mongoose
     - handle update click
 
 42. Upload Product Image
+
     - create cloudinary account
     - use the api key in env file
     - handle upload file
     - implement backend api to upload
+
+43. Delete Product
+
+    - show delete button
+    - implement backend api
+    - handle on click
+
+44. List Orders
+    - create order list screen
+    - implement backen api
+    - fetch and display orders
