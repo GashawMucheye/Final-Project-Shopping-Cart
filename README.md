@@ -288,6 +288,14 @@ npm install mongoose
     - implement backend api for delete
 
 47. List Users
+
     - create user list screen
     - implement backend api
     - fetch and display users
+
+48. Edit User
+    - create edit button
+    - create edit product ui
+    - dispaly product info in the input boxes
+    - implement backend api
+    - handle edit click
