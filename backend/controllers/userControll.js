@@ -1,9 +1,38 @@
-import bcrypt from "bcryptjs";
-import User from "../models/userModels.js";
+import bcrypt from 'bcryptjs';
+import User from '../models/userModels.js';
 
-import expressAsyncHandler from "express-async-handler";
-import { generateToken } from "../utils.js";
+import expressAsyncHandler from 'express-async-handler';
+import { generateToken } from '../utils.js';
 
+//getting users
+
+const getUsers = expressAsyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.send(users);
+});
+//get user by id
+const getUserById = expressAsyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    res.send(user);
+  } else {
+    res.status(404).send({ message: 'User Not Found' });
+  }
+});
+//update user by id
+
+const updateUserById = expressAsyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    user.isAdmin = Boolean(req.body.isAdmin);
+    const updatedUser = await user.save();
+    res.send({ message: 'User Updated', user: updatedUser });
+  } else {
+    res.status(404).send({ message: 'User Not Found' });
+  }
+});
 const getUserByEmail = expressAsyncHandler(async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user) {
@@ -18,7 +47,7 @@ const getUserByEmail = expressAsyncHandler(async (req, res) => {
       return;
     }
   }
-  res.status(401).send({ message: "Invalid email or password" });
+  res.status(401).send({ message: 'Invalid email or password' });
 });
 
 const creatingSignup = expressAsyncHandler(async (req, res) => {
@@ -55,8 +84,15 @@ const updatingProfile = expressAsyncHandler(async (req, res) => {
       token: generateToken(updatedUser),
     });
   } else {
-    res.status(404).send({ message: "User not found" });
+    res.status(404).send({ message: 'User not found' });
   }
 });
 
-export { getUserByEmail, creatingSignup, updatingProfile };
+export {
+  getUsers,
+  getUserByEmail,
+  getUserById,
+  updateUserById,
+  creatingSignup,
+  updatingProfile,
+};
