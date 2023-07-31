@@ -289,5 +289,5 @@ npm install mongoose
 
 47. List Users
     - create user list screen
-    - implement backen api
+    - implement backend api
     - fetch and display users
