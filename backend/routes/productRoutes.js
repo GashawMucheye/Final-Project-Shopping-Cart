@@ -19,7 +19,7 @@ productRouter.post('/', isAuth, isAdmin, setProducts);
 
 productRouter.put('/:id', isAuth, isAdmin, updateProducts);
 
-productRouter.delete('/:id', deleteProducts);
+productRouter.delete('/:id', isAuth, isAdmin, deleteProducts);
 productRouter.get('/admin', isAuth, isAdmin, getAdmin);
 productRouter.get('/search', getSearch);
 productRouter.get('/categories', getCategories);
