@@ -14,7 +14,9 @@ import ProfileScreen from '../screens/ProfileScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ProtectedRoute from './ProtectedRoute';
 import DashboardScreen from '../screens/DashboardScreen';
-
+import ProductListScreen from '../screens/ProductListScreen';
+import AdminRoute from './AdminRoute';
+import ProductEditScreen from '../screens/ProductEditScreen';
 function Main() {
   return (
     <main>
@@ -27,6 +29,22 @@ function Main() {
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
           <Route path="/dashboard" element={<DashboardScreen />} />
+          <Route
+            path="/admin/products"
+            element={
+              <AdminRoute>
+                <ProductListScreen />
+              </AdminRoute>
+            }
+          ></Route>
+          <Route
+            path="/admin/product/:id"
+            element={
+              <AdminRoute>
+                <ProductEditScreen />
+              </AdminRoute>
+            }
+          ></Route>
           <Route
             path="/profile"
             element={
