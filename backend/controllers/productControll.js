@@ -73,16 +73,14 @@ const updateProducts = expressAsyncHandler(async (req, res) => {
 
 const deleteProducts = expressAsyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
-
-  if (!product) {
-    res.status(400);
-    throw new Error('Product not found');
+  if (product) {
+    await product.deleteOne();
+    res.send({ message: 'Product Deleted' });
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
   }
-
-  await product.deleteOne();
-
-  res.status(200).json({ id: req.params.id });
 });
+
 //! categories
 const getCategories = expressAsyncHandler(async (req, res) => {
   const categories = await Product.find().distinct('category');
