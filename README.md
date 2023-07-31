@@ -282,6 +282,12 @@ npm install mongoose
     - implement backend api for deliver
 
 46. Delete Order
+
     - add delete button
     - handle click action
     - implement backend api for delete
+
+47. List Users
+    - create user list screen
+    - implement backen api
+    - fetch and display users
