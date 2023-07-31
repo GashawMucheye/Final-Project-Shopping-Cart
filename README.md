@@ -232,3 +232,20 @@ npm install mongoose
 - define protected rout component
 - define admin route component
 - add menu for admin in header
+
+38. Manage Products
+
+    - create products list ui
+    - implement backend api
+    - fetch data
+
+39. Create Product
+
+    - create products button
+    - implement backend api
+    - handle on click
+
+40. Create Edit Product
+    - create edit button
+    - create edit product ui
+    - dispaly product info in the input boxes
