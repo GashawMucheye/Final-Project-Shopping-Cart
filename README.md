@@ -246,6 +246,18 @@ npm install mongoose
     - handle on click
 
 40. Create Edit Product
+
     - create edit button
     - create edit product ui
     - dispaly product info in the input boxes
+
+41. Implement Update Product
+
+    - create edit product backend api
+    - handle update click
+
+42. Upload Product Image
+    - create cloudinary account
+    - use the api key in env file
+    - handle upload file
+    - implement backend api to upload
