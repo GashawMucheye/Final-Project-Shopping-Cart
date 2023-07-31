@@ -18,6 +18,8 @@ import ProductListScreen from '../screens/ProductListScreen';
 import AdminRoute from './AdminRoute';
 import ProductEditScreen from '../screens/ProductEditScreen';
 import OrderListScreen from '../screens/OrderListScreen';
+import UserListScreen from '../screens/UserListScreen';
+import UserEditScreen from '../screens/UserEditScreen';
 function Main() {
   return (
     <main>
@@ -52,6 +54,24 @@ function Main() {
             element={
               <AdminRoute>
                 <ProductEditScreen />
+              </AdminRoute>
+            }
+          ></Route>
+
+          <Route
+            path="/admin/users"
+            element={
+              <AdminRoute>
+                <UserListScreen />
+              </AdminRoute>
+            }
+          ></Route>
+
+          <Route
+            path="/admin/user/:id"
+            element={
+              <AdminRoute>
+                <UserEditScreen />
               </AdminRoute>
             }
           ></Route>
