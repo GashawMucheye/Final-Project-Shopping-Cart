@@ -294,8 +294,14 @@ npm install mongoose
     - fetch and display users
 
 48. Edit User
+
     - create edit button
     - create edit product ui
     - dispaly product info in the input boxes
     - implement backend api
     - handle edit click
+
+49. Delete User
+    - add delete button
+    - handle click action
+    - implement backen api for delete
