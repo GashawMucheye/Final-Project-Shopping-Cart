@@ -17,7 +17,7 @@ const productRouter = Router();
 productRouter.get('/', getProducts);
 productRouter.post('/', isAuth, isAdmin, setProducts);
 
-productRouter.put('/:id', updateProducts);
+productRouter.put('/:id', isAuth, isAdmin, updateProducts);
 
 productRouter.delete('/:id', deleteProducts);
 productRouter.get('/admin', isAuth, isAdmin, getAdmin);
