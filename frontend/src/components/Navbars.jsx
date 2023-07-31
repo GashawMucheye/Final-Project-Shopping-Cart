@@ -74,13 +74,13 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                 <LinkContainer to="/dashboard">
                   <NavDropdown.Item>Dashboard</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/productlist">
+                <LinkContainer to="/admin/products">
                   <NavDropdown.Item>Products</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/orderlist">
+                <LinkContainer to="/admin/orders">
                   <NavDropdown.Item>Orders</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/userlist">
+                <LinkContainer to="admin/users">
                   <NavDropdown.Item>Users</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
