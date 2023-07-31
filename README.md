@@ -284,4 +284,4 @@ npm install mongoose
 46. Delete Order
     - add delete button
     - handle click action
-    - implement backen api for delete
+    - implement backend api for delete
