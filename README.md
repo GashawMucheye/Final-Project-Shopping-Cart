@@ -270,6 +270,18 @@ npm install mongoose
     - handle on click
 
 44. List Orders
+
     - create order list screen
     - implement backen api
     - fetch and display orders
+
+45. Deliver Order
+
+    - add deliver button
+    - handle click action
+    - implement backend api for deliver
+
+46. Delete Order
+    - add delete button
+    - handle click action
+    - implement backen api for delete
