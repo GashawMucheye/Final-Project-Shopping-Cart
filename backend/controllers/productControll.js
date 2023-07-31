@@ -49,23 +49,24 @@ const setProducts = expressAsyncHandler(async (req, res) => {
 //!@access private
 
 const updateProducts = expressAsyncHandler(async (req, res) => {
-  const product = await Product.findById(req.params.id);
-
-  if (!product) {
-    res.status(400);
-    throw new Error('Product not found');
+  const productId = req.params.id;
+  const product = await Product.findById(productId);
+  if (product) {
+    product.name = req.body.name;
+    product.slug = req.body.slug;
+    product.price = req.body.price;
+    product.image = req.body.image;
+    product.category = req.body.category;
+    product.brand = req.body.brand;
+    product.countInStock = req.body.countInStock;
+    product.description = req.body.description;
+    await product.save();
+    res.send({ message: 'Product Updated' });
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
   }
-
-  const updatedProduct = await Product.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-    }
-  );
-
-  res.status(200).json(updatedProduct);
 });
+
 //! @desc  delete products
 //! @route Delete /api/products
 //!@access private
