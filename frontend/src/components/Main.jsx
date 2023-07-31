@@ -17,6 +17,7 @@ import DashboardScreen from '../screens/DashboardScreen';
 import ProductListScreen from '../screens/ProductListScreen';
 import AdminRoute from './AdminRoute';
 import ProductEditScreen from '../screens/ProductEditScreen';
+import OrderListScreen from '../screens/OrderListScreen';
 function Main() {
   return (
     <main>
@@ -29,6 +30,15 @@ function Main() {
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
           <Route path="/dashboard" element={<DashboardScreen />} />
+
+          <Route
+            path="/admin/orders"
+            element={
+              <AdminRoute>
+                <OrderListScreen />
+              </AdminRoute>
+            }
+          ></Route>
           <Route
             path="/admin/products"
             element={
