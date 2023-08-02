@@ -20,6 +20,7 @@ import ProductEditScreen from '../screens/ProductEditScreen';
 import OrderListScreen from '../screens/OrderListScreen';
 import UserListScreen from '../screens/UserListScreen';
 import UserEditScreen from '../screens/UserEditScreen';
+import MapScreen from '../screens/MapScreen';
 function Main() {
   return (
     <main>
@@ -92,6 +93,14 @@ function Main() {
             element={
               <ProtectedRoute>
                 <OrderScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/map"
+            element={
+              <ProtectedRoute>
+                <MapScreen />
               </ProtectedRoute>
             }
           />
