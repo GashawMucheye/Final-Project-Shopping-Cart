@@ -10,6 +10,7 @@ import {
   getCategories,
   getSearch,
   getAdmin,
+  getReviews,
 } from '../controllers/productControll.js';
 
 const productRouter = Router();
@@ -18,7 +19,7 @@ productRouter.get('/', getProducts);
 productRouter.post('/', isAuth, isAdmin, setProducts);
 
 productRouter.put('/:id', isAuth, isAdmin, updateProducts);
-
+productRouter.post('/:id/reviews', isAuth, getReviews);
 productRouter.delete('/:id', isAuth, isAdmin, deleteProducts);
 productRouter.get('/admin', isAuth, isAdmin, getAdmin);
 productRouter.get('/search', getSearch);
