@@ -247,7 +247,7 @@ const ProductScreen = () => {
                 <Button disabled={loadingCreateReview} type="submit">
                   Submit
                 </Button>
-                {loadingCreateReview && <LoadingBox></LoadingBox>}
+                {loadingCreateReview && <Loading></Loading>}
               </div>
             </form>
           ) : (
