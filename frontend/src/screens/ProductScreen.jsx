@@ -54,6 +54,7 @@ const ProductScreen = () => {
 
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
+  const [selectedImage, setSelectedImage] = useState('');
 
   const navigate = useNavigate();
   const params = useParams();
@@ -136,7 +137,7 @@ const ProductScreen = () => {
         <Col md={6}>
           <img
             className="product-screen-image"
-            src={product.image}
+            src={selectedImage || product.image}
             alt={product.name}
           />
         </Col>
@@ -152,6 +153,24 @@ const ProductScreen = () => {
               <Rating rating={product.rating} numReviews={product.numReviews} />
             </ListGroup.Item>
             <ListGroup.Item>price: ${product.price}</ListGroup.Item>
+            <ListGroup.Item>
+              <Row xs={1} md={2} className="g-2">
+                {[product.image, ...product.images].map((x) => (
+                  <Col key={x}>
+                    <Card>
+                      <Button
+                        className="thumbnail"
+                        type="button"
+                        variant="light"
+                        onClick={() => setSelectedImage(x)}
+                      >
+                        <Card.Img variant="top" src={x} alt="product" />
+                      </Button>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </ListGroup.Item>
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
