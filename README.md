@@ -329,6 +329,12 @@ npm install mongoose
     - send email order receipt
 
 52. Review Orders
+
     - create submit review form
     - handle submit
     - implement backend api for review
+
+53. Upload multiple Images
+    - add images to product model
+    - get images in edit screen
+    - show images in product screen
