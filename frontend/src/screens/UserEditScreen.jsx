@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer, useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Form, Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -30,7 +29,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function UserEditScreen() {
+const UserEditScreen = () => {
   const [{ loading, error, loadingUpdate }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
@@ -139,4 +138,6 @@ export default function UserEditScreen() {
       )}
     </Container>
   );
-}
+};
+
+export default UserEditScreen;

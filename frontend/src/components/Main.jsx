@@ -21,6 +21,8 @@ import OrderListScreen from '../screens/OrderListScreen';
 import UserListScreen from '../screens/UserListScreen';
 import UserEditScreen from '../screens/UserEditScreen';
 import MapScreen from '../screens/MapScreen';
+import ResetPasswordScreen from '../screens/ResetPasswordScreen';
+import ForgetPasswordScreen from '../screens/ForgetPasswordScreen';
 function Main() {
   return (
     <main>
@@ -32,6 +34,11 @@ function Main() {
           <Route path="/search" element={<SearchScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
+          <Route path="/forget-password" element={<ForgetPasswordScreen />} />
+          <Route
+            path="/reset-password/:token"
+            element={<ResetPasswordScreen />}
+          />
           <Route path="/dashboard" element={<DashboardScreen />} />
 
           <Route

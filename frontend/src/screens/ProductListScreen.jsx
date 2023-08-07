@@ -54,7 +54,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function ProductListScreen() {
+const ProductListScreen = () => {
   const [
     {
       loading,
@@ -215,4 +215,6 @@ export default function ProductListScreen() {
       )}
     </div>
   );
-}
+};
+
+export default ProductListScreen;

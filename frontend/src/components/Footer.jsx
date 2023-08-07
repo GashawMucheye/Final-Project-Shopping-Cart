@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className=" bg-dark">
       <Container className="bg-primary">
         <div className="text-center ">
-          <p className="mt-1" style={{ color: 'white' }}>
+          <p className="my-1" style={{ color: 'white' }}>
             &copy;all rights reserver me
           </p>
         </div>

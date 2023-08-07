@@ -39,7 +39,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-export default function UserListScreen() {
+const UserListScreen = () => {
   const navigate = useNavigate();
 
   const [{ loading, error, users, loadingDelete, successDelete }, dispatch] =
@@ -147,4 +147,6 @@ export default function UserListScreen() {
       )}
     </div>
   );
-}
+};
+
+export default UserListScreen;

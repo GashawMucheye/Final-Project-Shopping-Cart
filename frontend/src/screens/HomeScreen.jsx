@@ -42,18 +42,11 @@ const HomeScreen = () => {
     };
     fetchData();
   }, []);
-  // const currentProducts = products.slice(
-  //   pageVisited,
-  //   pageVisited + productPerPage
-  // );
-  // const pageCount = Math.ceil(products.length / productPerPage);
-  // const changePage = ({ selected }) => {
-  //   setPageNumber(selected);
-  // };
+
   return (
     <div>
       <Helmet>
-        <title>Shopping Cart</title>
+        <title>MERN Ecommerce</title>
       </Helmet>
       <div className="background-image"></div>
       <h1>Featured Products</h1>
