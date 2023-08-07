@@ -8,7 +8,7 @@ import {
   getUserById,
   updateUserById,
   deleteUserById,
-} from '../controllers/userControll.js';
+} from '../controllers/userController.js';
 import { isAuth, isAdmin } from '../utils.js';
 
 const userRouter = Router();

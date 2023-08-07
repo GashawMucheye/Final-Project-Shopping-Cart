@@ -10,7 +10,7 @@ import {
   deleteOrderById,
   updateDeliverOrderById,
   updatePaidOrder,
-} from '../controllers/orderControll.js';
+} from '../controllers/orderController.js';
 import { isAuth, isAdmin } from '../utils.js';
 
 const orderRouter = express.Router();

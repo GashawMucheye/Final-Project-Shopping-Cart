@@ -11,7 +11,7 @@ import {
   getSearch,
   getAdmin,
   getReviews,
-} from '../controllers/productControll.js';
+} from '../controllers/productController.js';
 
 const productRouter = Router();
 
