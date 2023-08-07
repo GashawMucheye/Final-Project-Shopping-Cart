@@ -1,16 +1,3 @@
-// import prod1 from "../src/images/pic1.jpg";
-// import prod2 from "../src/images/pic2.jpg";
-// import prod3 from "../src/images/pic3.jpg";
-// import prod4 from "../src/images/pic4.jpg";
-// import prod5 from "../src/images/pic5.jpg";
-// import prod6 from "../src/images/pic6.jpg";
-// import prod7 from "../src/images/pic7.jpg";
-// import prod8 from "../src/images/pic8.jpg";
-// import prod9 from "../src/images/pic9.jpg";
-// import prod10 from "../src/images/pic10.jpg";
-// import prod11 from "../src/images/pic11.jpg";
-// import prod12 from "../src/images/pic12.jpg";
-
 export const data = {
   products: [
     {
