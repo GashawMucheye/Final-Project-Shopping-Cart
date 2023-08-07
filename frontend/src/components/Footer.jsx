@@ -3,12 +3,11 @@ import { Container } from 'react-bootstrap';
 
 const Footer = () => {
   return (
-    <footer className=" bg-dark">
-      <Container className="bg-primary">
-        <div className="text-center ">
-          <p className="my-1" style={{ color: 'white' }}>
-            &copy;all rights reserver me
-          </p>
+    <footer>
+      <Container>
+        <div className="text-center text-white ">
+          {' '}
+          &copy;All rights reserved
         </div>
       </Container>
     </footer>

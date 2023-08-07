@@ -35,6 +35,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
             <strong> {brandName}</strong>
           </Navbar.Brand>
         </LinkContainer>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <SearchBox />
@@ -52,6 +53,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                 <LinkContainer to="/profile">
                   <NavDropdown.Item>User Profile</NavDropdown.Item>
                 </LinkContainer>
+
                 <LinkContainer to="/orderhistory">
                   <NavDropdown.Item>Order History</NavDropdown.Item>
                 </LinkContainer>
@@ -69,6 +71,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                 SignIn
               </Link>
             )}
+
             {userInfo && userInfo.isAdmin && (
               <NavDropdown title="Admin" id="admin-nav-dropdown">
                 <LinkContainer to="/dashboard">

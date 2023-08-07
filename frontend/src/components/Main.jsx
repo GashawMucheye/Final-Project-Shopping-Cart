@@ -26,7 +26,7 @@ import ForgetPasswordScreen from '../screens/ForgetPasswordScreen';
 function Main() {
   return (
     <main>
-      <Container className="my-2">
+      <Container className="my-1">
         <Routes>
           <Route path="/product/:slug" element={<ProductScreen />} />
           <Route path="/" element={<HomeScreen />} />

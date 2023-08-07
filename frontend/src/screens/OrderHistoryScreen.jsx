@@ -70,7 +70,6 @@ const OrderHistoryScreen = () => {
               <th>PAID</th>
               <th>DELIVERED</th>
               <th>ACTIONS</th>
-              <th>DELETE-ACTIONS</th>
             </tr>
           </thead>
           <tbody>
@@ -94,17 +93,6 @@ const OrderHistoryScreen = () => {
                     }}
                   >
                     Details
-                  </Button>
-                </td>
-                <td>
-                  <Button
-                    type="button"
-                    variant="light"
-                    onClick={() => {
-                      // navigate(`/order/${order._id}`);
-                    }}
-                  >
-                    Delete
                   </Button>
                 </td>
               </tr>
