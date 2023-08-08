@@ -12,6 +12,7 @@ import { Store } from '../contextApi/Store';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import SearchBox from './SearchBox';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
@@ -63,12 +64,12 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                   to="#Signout"
                   onClick={signoutHandler}
                 >
-                  Signout
+                  <FaSignOutAlt /> Signout
                 </Link>
               </NavDropdown>
             ) : (
               <Link className="nav-link" to="/signin">
-                SignIn
+                <FaSignInAlt /> SignIn
               </Link>
             )}
 

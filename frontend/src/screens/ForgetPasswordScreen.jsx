@@ -6,6 +6,7 @@ import { getError } from '../utils';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
 import { Form, Button, Container } from 'react-bootstrap';
+import { HiOutlineMail } from 'react-icons/hi';
 
 const ForgetPasswordScreen = () => {
   const navigate = useNavigate();
@@ -37,7 +38,10 @@ const ForgetPasswordScreen = () => {
       <h1 className="my-3">Forget Password</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>
+            <HiOutlineMail />
+            Email
+          </Form.Label>
           <Form.Control
             type="email"
             required
