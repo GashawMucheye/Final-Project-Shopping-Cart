@@ -5,7 +5,7 @@ import { getError } from '../utils';
 import { toast } from 'react-toastify';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
-import { Axios } from 'axios';
+import axios from 'axios';
 
 const ResetPasswordScreen = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const ResetPasswordScreen = () => {
       return;
     }
     try {
-      await Axios.post('/api/users/reset-password', {
+      await axios.post('/api/users/reset-password', {
         password,
         token,
       });

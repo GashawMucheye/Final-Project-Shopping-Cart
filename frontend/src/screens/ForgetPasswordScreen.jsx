@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Store } from '../contextApi/Store';
-import { Axios } from 'axios';
 import { getError } from '../utils';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
 import { Form, Button, Container } from 'react-bootstrap';
 import { HiOutlineMail } from 'react-icons/hi';
+import axios from 'axios';
 
 const ForgetPasswordScreen = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const ForgetPasswordScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await Axios.post('/api/users/forget-password', {
+      const { data } = await axios.post('/api/users/forget-password', {
         email,
       });
       toast.success(data.message);
