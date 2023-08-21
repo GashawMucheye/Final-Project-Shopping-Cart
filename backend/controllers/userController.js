@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import User from '../models/userModels.js';
 
 import expressAsyncHandler from 'express-async-handler';
-import { generateToken } from '../utils.js';
+import { generateToken, mailgun, baseUrl } from '../utils.js';
 
 //getting users
 
@@ -116,7 +116,7 @@ const forgetPassword = expressAsyncHandler(async (req, res) => {
     await user.save();
 
     //reset link
-    console.log(`${baseUrl()}/reset-password/${token}`);
+    console.log(`http:localhost:3000/forget-password/${token}`);
 
     mailgun()
       .messages()
@@ -125,10 +125,10 @@ const forgetPassword = expressAsyncHandler(async (req, res) => {
           from: 'gashaw <gashaw240985@outlook.com>',
           to: `${user.name} <${user.email}>`,
           subject: `Reset Password`,
-          html: ` 
-           <p>Please Click the following link to reset your password:</p> 
-           <a href="${baseUrl()}/reset-password/${token}"}>Reset Password</a>
-           `,
+          html: `
+         <p>Please Click the following link to reset your password:</p>
+         <a href="http:localhost:3000/api/users/forget-password/${token}">Reset Password</a>
+         `,
         },
         (error, body) => {
           console.log(error);
@@ -173,4 +173,6 @@ export {
   updateUserById,
   creatingSignup,
   updatingProfile,
+  forgetPassword,
+  resetPassword,
 };

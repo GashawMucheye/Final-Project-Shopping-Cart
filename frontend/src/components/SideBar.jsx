@@ -37,7 +37,7 @@ const SideBar = ({ sidebarIsOpen, setSidebarIsOpen }) => {
               to={`/search?category=${category}`}
               onClick={() => setSidebarIsOpen(false)}
             >
-              <Nav.Link>{category}</Nav.Link>
+              <Nav.Link className="category_hover">{category}</Nav.Link>
             </Link>
           </Nav.Item>
         ))}

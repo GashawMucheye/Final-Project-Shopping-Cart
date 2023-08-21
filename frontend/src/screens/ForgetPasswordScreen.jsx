@@ -16,9 +16,12 @@ const ForgetPasswordScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/api/users/forget-password', {
-        email,
-      });
+      const { data } = await axios.post(
+        'http:localhost:5000/api/users/forget-password',
+        {
+          email,
+        }
+      );
       toast.success(data.message);
     } catch (err) {
       toast.error(getError(err));
