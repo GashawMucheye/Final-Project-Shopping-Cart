@@ -7,7 +7,7 @@ const Footer = () => {
       <Container>
         <div className="text-center text-white ">
           {' '}
-          &copy;All rights reserved
+          &copy;2023 Senays.All rights reserved
         </div>
       </Container>
     </footer>

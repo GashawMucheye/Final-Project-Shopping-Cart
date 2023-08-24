@@ -1,15 +1,16 @@
-import React, { useContext } from 'react';
+import Axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Store } from '../contextApi/Store';
 import { getError } from '../utils';
-import { toast } from 'react-toastify';
-import { Container, Form, Button } from 'react-bootstrap';
-import { Helmet } from 'react-helmet-async';
-import axios from 'axios';
 
-const ResetPasswordScreen = () => {
+export default function ResetPasswordScreen() {
   const navigate = useNavigate();
-
   const { token } = useParams();
 
   const [password, setPassword] = useState('');
@@ -17,6 +18,13 @@ const ResetPasswordScreen = () => {
 
   const { state } = useContext(Store);
   const { userInfo } = state;
+
+  useEffect(() => {
+    if (userInfo || !token) {
+      navigate('/');
+    }
+  }, [navigate, userInfo, token]);
+
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -24,7 +32,7 @@ const ResetPasswordScreen = () => {
       return;
     }
     try {
-      await axios.post('/api/users/reset-password', {
+      await Axios.post('/api/users/reset-password', {
         password,
         token,
       });
@@ -35,11 +43,6 @@ const ResetPasswordScreen = () => {
     }
   };
 
-  useEffect(() => {
-    if (userInfo || !token) {
-      navigate('/');
-    }
-  }, [navigate, userInfo, token]);
   return (
     <Container className="small-container">
       <Helmet>
@@ -54,21 +57,20 @@ const ResetPasswordScreen = () => {
             required
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Form.Group className="mb-3" controlId="confirmPassword">
-            <Form.Label>Confirm New Password</Form.Label>
-            <Form.Control
-              type="password"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </Form.Group>
         </Form.Group>
+        <Form.Group className="mb-3" controlId="confirmPassword">
+          <Form.Label>Confirm New Password</Form.Label>
+          <Form.Control
+            type="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </Form.Group>
+
         <div className="mb-3">
           <Button type="submit">Reset Password</Button>
         </div>
       </Form>
     </Container>
   );
-};
-
-export default ResetPasswordScreen;
+}

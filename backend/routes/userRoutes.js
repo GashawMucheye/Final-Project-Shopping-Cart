@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import {
   getUserByEmail,
   creatingSignup,
@@ -20,8 +19,10 @@ userRouter.put('/:id', isAuth, isAdmin, updateUserById);
 userRouter.delete('/:id', isAuth, isAdmin, deleteUserById);
 userRouter.post('/signin', getUserByEmail);
 userRouter.post('/signup', creatingSignup);
-userRouter.post('/forgrt-password', forgetPassword);
-userRouter.post('/reset-password', resetPassword);
 userRouter.put('/profile', isAuth, updatingProfile);
+
+userRouter.post('/forget-password', forgetPassword);
+
+userRouter.post('/reset-password', resetPassword);
 
 export default userRouter;

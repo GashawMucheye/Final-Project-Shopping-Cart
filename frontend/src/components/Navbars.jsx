@@ -40,6 +40,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <SearchBox />
+
           <Nav className="me-auto w-100 justify-content-end">
             <Link to="/cart" className="nav-link">
               <FaShoppingCart className="text-warning" />
@@ -49,6 +50,14 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                 </Badge>
               )}
             </Link>
+
+            <Link
+              to="/ContactScreen"
+              className="mt-2 text-white text-decoration-none"
+            >
+              Contact Us
+            </Link>
+
             {userInfo ? (
               <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                 <LinkContainer to="/profile">
