@@ -2,7 +2,9 @@ import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
 import User from '../models/orderModel.js';
 import Product from '../models/productModel.js';
-import { mailgun, payOrderEmailTemplate } from '../utils.js';
+import nodemailer from 'nodemailer';
+
+import { payOrderEmailTemplate } from '../utils.js';
 
 //! get order
 const getOrder = expressAsyncHandler(async (req, res) => {
@@ -121,26 +123,36 @@ const updatePaidOrder = expressAsyncHandler(async (req, res) => {
     };
 
     const updatedOrder = await order.save();
-    mailgun()
-      .messages()
-      .send(
-        {
-          from: 'gashaw <gashaw240985@outlook.com>',
-          to: `${order.user.name} <${order.user.email}>`,
-          subject: `New order ${order._id}`,
-          html: payOrderEmailTemplate(order),
-        },
-        (error, body) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(body);
-          }
-        }
-      );
-    res.send({ message: 'Order Paid', order: updatedOrder });
-  } else {
-    res.status(404).send({ message: 'Order Not Found' });
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'gashaw2533@gmail.com',
+        pass: process.env.EMAIL_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false, // This ignores self-signed certificate errors
+      },
+    });
+
+    const mailOptions = {
+      from: 'gashaw2533@gmail.com',
+      to: `${order.user.name} <${order.user.email}>`,
+      subject: `New order ${order._id}`,
+      html: payOrderEmailTemplate(order),
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        return res.send({
+          message: 'Order Paid',
+          order: updatedOrder,
+        });
+      }
+    });
   }
 });
 
