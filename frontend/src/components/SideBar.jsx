@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import { getError } from '../utils';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -33,12 +34,12 @@ const SideBar = ({ sidebarIsOpen, setSidebarIsOpen }) => {
         </Nav.Item>
         {categories.map((category) => (
           <Nav.Item key={category}>
-            <Link
-              to={`/search?category=${category}`}
+            <LinkContainer
+              to={{ pathname: '/search', search: `category=${category}` }}
               onClick={() => setSidebarIsOpen(false)}
             >
               <Nav.Link className="category_hover">{category}</Nav.Link>
-            </Link>
+            </LinkContainer>
           </Nav.Item>
         ))}
       </Nav>
