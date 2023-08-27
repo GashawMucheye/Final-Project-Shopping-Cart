@@ -17,7 +17,7 @@ export default function SearchBox() {
     <Form className="d-flex me-auto" onSubmit={submitHandler}>
       <InputGroup>
         <FormControl
-          type="text"
+          type="search"
           name="q"
           id="q"
           onChange={(e) => setQuery(e.target.value)}
