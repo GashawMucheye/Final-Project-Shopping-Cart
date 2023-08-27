@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { Store } from '../contextApi/Store';
 import { getError } from '../utils';
 
-export default function ResetPasswordScreen() {
+const ResetPasswordScreen = () => {
   const navigate = useNavigate();
   const { token } = useParams();
 
@@ -73,4 +73,6 @@ export default function ResetPasswordScreen() {
       </Form>
     </Container>
   );
-}
+};
+
+export default ResetPasswordScreen;

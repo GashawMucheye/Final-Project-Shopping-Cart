@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { Store } from '../contextApi/Store';
 import { getError } from '../utils';
 
-export default function ForgetPasswordScreen() {
+const ForgetPasswordScreen = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
@@ -26,7 +26,7 @@ export default function ForgetPasswordScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await Axios.post('/api/users/forget-password', {
+      const { data } = await axios.post('/api/users/forget-password', {
         email,
       });
       toast.success(data.message);
@@ -57,4 +57,6 @@ export default function ForgetPasswordScreen() {
       </Form>
     </Container>
   );
-}
+};
+
+export default ForgetPasswordScreen;
