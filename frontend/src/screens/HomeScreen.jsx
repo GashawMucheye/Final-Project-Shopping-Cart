@@ -62,19 +62,6 @@ const HomeScreen = () => {
                 <Product product={product} />
               </Col>
             ))}
-            {/* <Container className="bg-danger py-2">
-              <ReactPaginate
-                previousLabel={"Previous"}
-                nextLabel={"Next"}
-                pageCount={pageCount}
-                onPageChange={changePage}
-                containerClassName={"paginationBttns"}
-                previousLinkClassName={"previousBttn"}
-                nextLinkClassName={"nextBttn"}
-                disabledClassName={"paginationDisabled"}
-                activeClassName={"paginationActive"}
-              />
-            </Container> */}
           </Row>
         )}
       </div>

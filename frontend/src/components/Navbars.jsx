@@ -53,7 +53,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
 
             <Link
               to="/ContactScreen"
-              className="mt-2 text-white text-decoration-none"
+              className="mt-2 text-secondary text-decoration-none"
             >
               Contact Us
             </Link>

@@ -25,7 +25,7 @@ export default function SearchBox() {
           aria-label="Search Products"
           aria-describedby="button-search"
           className="d-grid"
-        ></FormControl>
+        />
         <Button
           variant="outline-primary"
           className="btn btn-warning"
