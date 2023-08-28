@@ -6,7 +6,6 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
-// import ReactPaginate from "react-paginate";
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -27,9 +26,7 @@ const HomeScreen = () => {
     loading: true,
     error: '',
   });
-  const [pageNumber, setPageNumber] = useState(0);
-  const productPerPage = 4;
-  const pageVisited = pageNumber * productPerPage;
+
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });

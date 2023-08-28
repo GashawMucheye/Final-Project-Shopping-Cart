@@ -42,6 +42,12 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
           <SearchBox />
 
           <Nav className="me-auto w-100 justify-content-end">
+            <Link
+              to="/ContactScreen"
+              className="mt-2 text-secondary text-decoration-none"
+            >
+              Contact Us
+            </Link>
             <Link to="/cart" className="nav-link">
               <FaShoppingCart className="text-warning" />
               {cart.cartItems.length > 0 && (
@@ -49,13 +55,6 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                   {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                 </Badge>
               )}
-            </Link>
-
-            <Link
-              to="/ContactScreen"
-              className="mt-2 text-secondary text-decoration-none"
-            >
-              Contact Us
             </Link>
 
             {userInfo ? (
