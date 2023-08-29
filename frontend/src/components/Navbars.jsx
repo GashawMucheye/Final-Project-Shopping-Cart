@@ -43,15 +43,29 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
 
           <Nav className="me-auto w-100 justify-content-end">
             <Link
+              to="/about"
+              className="mt-2 text-secondary text-decoration-none nav_link"
+            >
+              About Us
+            </Link>
+
+            <Link
               to="/ContactScreen"
-              className="mt-2 text-secondary text-decoration-none"
+              className="mt-2 text-secondary text-decoration-none nav_link"
             >
               Contact Us
             </Link>
-            <Link to="/cart" className="nav-link">
-              <FaShoppingCart className="text-warning" />
+            <Link to="/cart" className="nav-link nav_link mt-2">
+              <FaShoppingCart
+                className="text-warning "
+                style={{ fontSize: '30px' }}
+              />
               {cart.cartItems.length > 0 && (
-                <Badge pill bg="danger">
+                <Badge
+                  pill
+                  bg="danger"
+                  style={{ position: 'relative', left: '-10px', top: '-6px' }}
+                >
                   {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                 </Badge>
               )}
@@ -76,7 +90,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                 </Link>
               </NavDropdown>
             ) : (
-              <Link className="nav-link" to="/signin">
+              <Link className="nav-link nav_link mt-2" to="/signin">
                 <FaSignInAlt /> SignIn
               </Link>
             )}

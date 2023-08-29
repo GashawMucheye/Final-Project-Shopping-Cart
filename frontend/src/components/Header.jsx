@@ -7,6 +7,7 @@ const Header = ({ sidebarIsOpen, setSidebarIsOpen }) => {
         setSidebarIsOpen={setSidebarIsOpen}
         sidebarIsOpen={sidebarIsOpen}
       />
+      <div className="background-image"></div>
     </header>
   );
 };

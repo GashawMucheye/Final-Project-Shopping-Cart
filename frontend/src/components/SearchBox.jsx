@@ -24,7 +24,6 @@ export default function SearchBox() {
           placeholder="search products..."
           aria-label="Search Products"
           aria-describedby="button-search"
-          className="d-grid"
         />
         <Button
           variant="outline-primary"

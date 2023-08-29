@@ -45,7 +45,6 @@ const HomeScreen = () => {
       <Helmet>
         <title>MERN Ecommerce</title>
       </Helmet>
-      <div className="background-image"></div>
       <h1>All Products</h1>
       <div className="products">
         {loading ? (
