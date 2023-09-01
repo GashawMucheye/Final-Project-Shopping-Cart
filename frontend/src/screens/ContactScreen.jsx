@@ -84,7 +84,7 @@ const ContactScreen = () => {
             type="text"
             placeholder="Write Your Message"
             onChange={(e) => setMessage(e.target.value)}
-            defaultValue={message}
+            value={message}
           />
         </Form.Group>
         <div className="mb-3 d-grid">

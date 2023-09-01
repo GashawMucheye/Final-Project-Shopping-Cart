@@ -24,6 +24,7 @@ import MapScreen from '../screens/MapScreen';
 import ResetPasswordScreen from '../screens/ResetPasswordScreen';
 import ForgetPasswordScreen from '../screens/ForgetPasswordScreen';
 import ContactScreen from '../screens/ContactScreen';
+import AboutScreen from '../screens/AboutScreen';
 function Main() {
   return (
     <main>
@@ -34,6 +35,7 @@ function Main() {
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/search" element={<SearchScreen />} />
           <Route path="/ContactScreen" element={<ContactScreen />} />
+          <Route path="/about" element={<AboutScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
           <Route path="/forget-password" element={<ForgetPasswordScreen />} />

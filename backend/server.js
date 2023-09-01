@@ -34,13 +34,22 @@ app.use('/api/orders', orderRouter);
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
+//.............deployment...........................
+// const __dirname1 = path.resolve();
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname1, '/frontend/dist')));
 
-const __dirname = path.resolve();
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname1, 'frontend', 'dist', 'index.html'));
+//   });
+// } else {
+//   app.get('/', (req, res) => {
+//     res.send('API is running Successfully');
+//   });
+// }
 
-app.use(express.static(path.join(__dirname, '/frontend/dist')));
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/frontend/dist/index.html'))
-);
+//.............deployment...........................
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
