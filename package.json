@@ -1,5 +1,6 @@
 {
   "name": "final-project-shopping-cart",
+  "type": "module",
   "version": "1.0.0",
   "description": "1. Introduction\r 2. Install Tools\r 3. Create React App by using vite",
   "main": "index.js",
