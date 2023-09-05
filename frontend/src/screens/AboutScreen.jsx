@@ -4,12 +4,12 @@ import { Helmet } from 'react-helmet-async';
 
 const AboutScreen = () => {
   return (
-    <Container>
+    <Container className="small-container">
       <section className="about-us py-2 ">
         <Helmet>
           <title>About Us</title>
         </Helmet>
-        <h1>
+        <h1 className="about_heading">
           <u>About Us</u>
         </h1>
         <hr />
@@ -28,7 +28,7 @@ const AboutScreen = () => {
         </p>
 
         <details>
-          <summary>Our Journey:</summary>
+          <summary className="text-info">Our Journey:</summary>
           <p>
             Senays was born out of a deep-seated love for creating spaces that
             resonate with your personality and serve your practical
@@ -40,7 +40,7 @@ const AboutScreen = () => {
         </details>
 
         <details>
-          <summary> What Sets Us Apart:</summary>
+          <summary className="text-info"> What Sets Us Apart:</summary>
 
           <ul>
             <li>
@@ -72,7 +72,7 @@ const AboutScreen = () => {
         </details>
 
         <details>
-          <summary>Join Us in Creating Homes:</summary>
+          <summary className="text-info">Join Us in Creating Homes:</summary>
           <p>
             Whether you're revamping your kitchen, adding a touch of elegance to
             your living room...

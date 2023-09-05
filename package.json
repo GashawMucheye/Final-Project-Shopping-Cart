@@ -4,15 +4,26 @@
   "description": "1. Introduction\r 2. Install Tools\r 3. Create React App by using vite",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "backend": "npm start --prefix backend",
-    "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "build": "npm install &&  npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "Gashaw Malede",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.0"
+    "cloudinary": "^1.40.0",
+    "colors": "^1.4.0",
+    "concurrently": "^8.2.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^7.5.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.4",
+    "nodemon": "^3.0.1",
+    "streamifier": "^0.1.1"
   }
 }

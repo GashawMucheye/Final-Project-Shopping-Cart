@@ -61,14 +61,6 @@ header {
   z-index: 1;
 }
 
-/* styling background-image */
-.background-image {
-  background-image: url('https://plus.unsplash.com/premium_photo-1666299819315-929b3fae4450?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG9tZSUyMGFuZCUyMGtpdGNoZW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
-  background-size: cover;
-  background-position: center;
-  min-height: 150px; /* Adjust the height as needed */
-  width: 100%;
-}
 /*! main styling */
 
 main {
@@ -206,11 +198,25 @@ footer {
 }
 /*! category */
 .category_hover:hover {
-  background-color: rgb(125, 84, 109);
+  background-image: linear-gradient(red, yellow);
   border-radius: 6px;
   color: aliceblue;
 }
 
 button.thumbnail {
   padding: 0;
+}
+/*! about us */
+.about_heading {
+  position: relative;
+  animation: heading 3s forwards ease-in;
+}
+
+@keyframes heading {
+  from {
+    translate: -600px;
+  }
+  to {
+    translate: 0px;
+  }
 }

@@ -44,14 +44,14 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
           <Nav className="me-auto w-100 justify-content-end">
             <Link
               to="/about"
-              className="mt-2 text-secondary text-decoration-none nav_link"
+              className="mt-2 text-white text-decoration-none nav_link"
             >
               About Us
             </Link>
 
             <Link
               to="/ContactScreen"
-              className="mt-2 text-secondary text-decoration-none nav_link"
+              className="mt-2 text-white text-decoration-none nav_link"
             >
               Contact Us
             </Link>
@@ -90,7 +90,7 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
                 </Link>
               </NavDropdown>
             ) : (
-              <Link className="nav-link nav_link mt-2" to="/signin">
+              <Link className="nav-link nav_link mt-2 text-white" to="/signin">
                 <FaSignInAlt /> SignIn
               </Link>
             )}
