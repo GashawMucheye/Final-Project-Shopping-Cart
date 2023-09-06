@@ -335,6 +335,15 @@ npm install mongoose
     - implement backend api for review
 
 53. Upload multiple Images
+
     - add images to product model
     - get images in edit screen
     - show images in product screen
+
+54. build and deploy
+    - making dist folder
+    ```js
+    run command
+    npm run build
+    ```
+    - connect my github to render and deploy my app by using render
