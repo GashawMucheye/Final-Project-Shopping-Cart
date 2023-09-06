@@ -43,7 +43,7 @@ const HomeScreen = () => {
   return (
     <div>
       <Helmet>
-        <title>MERN Ecommerce</title>
+        <title>Senays|MERN Ecommerce</title>
       </Helmet>
       <h1>All Products</h1>
       <div className="products">
