@@ -32,6 +32,7 @@ function Main() {
         <Routes>
           <Route path="/product/:slug" element={<ProductScreen />} />
           <Route path="/" element={<HomeScreen />} />
+          <Route path="/home" element={<HomeScreen />} />
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/search" element={<SearchScreen />} />
           <Route path="/ContactScreen" element={<ContactScreen />} />

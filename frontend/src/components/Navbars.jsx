@@ -43,6 +43,12 @@ const Navbars = ({ brandName, setSidebarIsOpen, sidebarIsOpen }) => {
 
           <Nav className="me-auto w-100 justify-content-end">
             <Link
+              to="/home"
+              className="mt-2 text-white text-decoration-none nav_link"
+            >
+              Home
+            </Link>
+            <Link
               to="/about"
               className="mt-2 text-white text-decoration-none nav_link"
             >
