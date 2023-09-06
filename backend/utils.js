@@ -5,7 +5,7 @@ import mg from 'mailgun-js';
 export const baseUrl = () =>
   process.env.BASE_URL
     ? process.env.BASE_URL
-    : process.env.NODE_ENV !== 'production'
+    : process.env.NODE_ENV !== 'productions'
     ? 'http://localhost:3000'
     : 'https://senays-mern-ecommerce.onrender.com';
 
