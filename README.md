@@ -309,15 +309,15 @@ npm install mongoose
 
 50. Choose Address On Google Map
 
-    1. create google map credentials
-    2. update .env file with Google Api Key
-    3. create api to send google api to frontend
-    4. create map screen
-    5. fetch google api
-    6. getUserLocation
-    7. install @react-google-maps/api
-    8. use it in shipping screen
-    9. apply map to the checkout screen
+    - create google map credentials
+    - update .env file with Google Api Key
+    - create api to send google api to frontend
+    - create map screen
+    - fetch google api
+    - getUserLocation
+    - install @react-google-maps/api
+    - use it in shipping screen
+    - apply map to the checkout screen
 
 51. Email order receipt by mailgun
 
@@ -340,10 +340,21 @@ npm install mongoose
     - get images in edit screen
     - show images in product screen
 
-54. build and deploy
+54. create ContactScreen
+
+- install emailjs
+
+```js
+install @emailjs/browser
+```
+
+- create contactScreen
+
+55. create AboutScreen
+
+56. build and deploy
     - making dist folder
     ```js
-    run command
     npm run build
     ```
     - connect my github to render and deploy my app by using render
