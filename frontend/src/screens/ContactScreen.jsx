@@ -29,7 +29,7 @@ const ContactScreen = () => {
       .then(
         (result) => {
           console.log(result.text);
-          toast.success('email sent succcefully');
+          toast.success('Message sent succcefully');
         },
         (error) => {
           console.log(error.text);
