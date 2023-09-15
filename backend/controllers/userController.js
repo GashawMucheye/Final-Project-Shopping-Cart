@@ -147,7 +147,7 @@ const forgetPassword = expressAsyncHandler(async (req, res) => {
         console.log(error);
       } else {
         return res.send({
-          message: 'Success We send link to your email for reset password',
+          message: 'Success check your email for reset password',
         });
       }
     });
