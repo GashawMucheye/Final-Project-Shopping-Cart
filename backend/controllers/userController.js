@@ -106,7 +106,7 @@ const updatingProfile = expressAsyncHandler(async (req, res) => {
     res.status(404).send({ message: 'User not found' });
   }
 });
-//forgetpassword
+//!forgetpassword
 const forgetPassword = expressAsyncHandler(async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
 
@@ -117,7 +117,7 @@ const forgetPassword = expressAsyncHandler(async (req, res) => {
     user.resetToken = token;
     await user.save();
 
-    //reset link
+    //!reset link
     console.log(`${baseUrl()}/reset-password/${token}`);
 
     const transporter = nodemailer.createTransport({
@@ -151,9 +151,6 @@ const forgetPassword = expressAsyncHandler(async (req, res) => {
         });
       }
     });
-    // else {
-    //   res.status(404).send({ message: 'User not found' });
-    // }}
   }
 });
 
