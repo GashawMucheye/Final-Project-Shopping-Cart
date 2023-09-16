@@ -15,11 +15,12 @@ import { isAuth, isAdmin } from '../utils.js';
 const userRouter = Router();
 userRouter.get('/', isAuth, isAdmin, getUsers);
 userRouter.get('/:id', isAuth, isAdmin, getUserById);
+userRouter.put('/profile', isAuth, updatingProfile);
+
 userRouter.put('/:id', isAuth, isAdmin, updateUserById);
 userRouter.delete('/:id', isAuth, isAdmin, deleteUserById);
 userRouter.post('/signin', getUserByEmail);
 userRouter.post('/signup', creatingSignup);
-userRouter.put('/profile', isAuth, updatingProfile);
 
 userRouter.post('/forget-password', forgetPassword);
 

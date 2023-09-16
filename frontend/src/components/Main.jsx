@@ -39,6 +39,14 @@ function Main() {
           <Route path="/about" element={<AboutScreen />} />
           <Route path="/Signin" element={<SignInScreen />} />
           <Route path="/Signup" element={<SignupScreen />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfileScreen />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/forget-password" element={<ForgetPasswordScreen />} />
           <Route
             path="/reset-password/:token"
@@ -88,14 +96,7 @@ function Main() {
               </AdminRoute>
             }
           ></Route>
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <ProfileScreen />
-              </ProtectedRoute>
-            }
-          />
+
           <Route path="/shipping" element={<ShippingAddressScreen />} />
           <Route path="/payment" element={<PaymentMethodScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
