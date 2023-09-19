@@ -357,4 +357,4 @@ install @emailjs/browser
     ```js
     npm run build
     ```
-    - connect my github to render and deploy my app by using render
+    - connect my github to render and deploy my app by using render: [https://senays-mern-ecommerce.onrender.com]
