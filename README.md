@@ -1,4 +1,4 @@
-# MERN SHOPPING CART
+# Final Project MERN E-Commerce Site
 
 # Lessons
 
