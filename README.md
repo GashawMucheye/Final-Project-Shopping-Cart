@@ -1,7 +1,5 @@
 # Final Project MERN E-Commerce Site
 
-# Lessons
-
 1. Introduction
 2. Install Tools
 3. Create React App by using vite
