@@ -1,5 +1,7 @@
 # Final Project MERN E-Commerce Site
 
+![Alt text](./frontend/public/images/ecommerce.png)
+
 1. Introduction
 2. Install Tools
 3. Create React App by using vite
