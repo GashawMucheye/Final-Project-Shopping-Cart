@@ -7,7 +7,7 @@ const AboutScreen = () => {
     <Container className='small-container'>
       <section className='about-us py-2 '>
         <Helmet>
-          <title>About Us test</title>
+          <title>About Us testing</title>
         </Helmet>
         <h1 className='about_heading'>
           <u>About Us</u>
