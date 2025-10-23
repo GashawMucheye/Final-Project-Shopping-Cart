@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vite --openssl-legacy-provider dev",
+    "build": "vite build --openssl-legacy-provider",
+    "preview": "vite preview --openssl-legacy-provider"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
@@ -31,6 +31,6 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
-    "vite": "^4.2.0"
+    "vite": "^5.0.0"
   }
 }
