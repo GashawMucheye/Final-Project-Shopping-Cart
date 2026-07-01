@@ -1,6 +1,7 @@
 import express from 'express';
 import { config } from 'dotenv';
 import colors from 'colors';
+import cron from 'node-cron';
 import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
 import userRouter from './routes/userRoutes.js';
@@ -15,6 +16,20 @@ import connectDB from './config/db.js';
 connectDB();
 
 const app = express();
+
+// Keep Render free tier awake - pings itself every 14 minutes
+const RENDER_URL = process.env.RENDER_URL;
+if (RENDER_URL) {
+  cron.schedule('*/14 * * * *', async () => {
+    try {
+      const response = await fetch(RENDER_URL);
+      console.log(`Keep-alive ping to ${RENDER_URL}: ${response.status}`);
+    } catch (err) {
+      console.error('Keep-alive ping failed:', err.message);
+    }
+  });
+  console.log(`Keep-alive cron scheduled for ${RENDER_URL}`.cyan);
+}
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
